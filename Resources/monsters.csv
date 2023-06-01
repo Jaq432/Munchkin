@@ -1,0 +1,30 @@
+# name, type, attack value, description, levels to gain, loot to gain
+Boar,animal,1,Just a boar,1,1 
+Boar,animal,1,Just a boar,1,1
+Boar,animal,1,Just a boar,1,1
+Boar,animal,1,Just a boar,1,1
+Boar,animal,1,Just a boar,1,1
+Skeleton,undead,3,How is it alive?!,1,1
+Skeleton,undead,3,How is it alive?!,1,1
+Skeleton,undead,3,How is it alive?!,1,1
+Skeleton,undead,3,How is it alive?!,1,1
+Skeleton,undead,3,How is it alive?!,1,1
+Murlok,humanoid,3,Is that a bipedal frog?,1,1
+Murlok,humanoid,3,Is that a bipedal frog?,1,1
+Murlok,humanoid,3,Is that a bipedal frog?,1,1
+Murlok,humanoid,3,Is that a bipedal frog?,1,1
+Murlok,humanoid,3,Is that a bipedal frog?,1,1
+Bear,animal,5,Doesn't look very happy,1,2
+Bear,animal,5,Doesn't look very happy,1,2
+Bear,animal,5,Doesn't look very happy,1,2
+Bear,animal,5,Doesn't look very happy,1,2
+Bandit,humanoid,5,Looking for loot,1,2
+Bandit,humanoid,5,Looking for loot,1,2
+Bandit,humanoid,5,Looking for loot,1,2
+Bandit,humanoid,5,Looking for loot,1,2
+Assassin,humanoid,8,Someone must not like you,2,2
+Assassin,humanoid,8,Someone must not like you,2,2
+Knight,humanoid,8,They were just minding their own business until you came along,2,2
+Knight,humanoid,8,They were just minding their own business until you came along,2,2
+Mounted Knight,humanoid,10,You're in for trouble,2,3
+Dragon,dragon,12,Where's a donkey when you need one?,2,4
