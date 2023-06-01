@@ -17,8 +17,8 @@ The goal of this program is to replicate the gameplay of the game 'Munchkins'
 #### 3ac. If it is a monster, you must have equal or greater power than the monster to defeat it
 ##### 3aca. Players may apply modifiers to the monster to make it stronger
 ##### 3acb. If the player cannot defeat the monster with their power or by playing cards in their hand, they have two options:
-###### 3acba. Ask other players for assistance and split the loot
-###### 3acbb. Run away from the monster and lose a level
+##### 3acba. Ask other players for assistance and split the loot
+##### 3acbb. Run away from the monster and lose a level
 #### 3acc. If the player defeats the monster, draw the number of loot and gain the number of levels
 #### 3ad. If it is an item or curse, you can kick the door in again or play a monster card from your hand
 
