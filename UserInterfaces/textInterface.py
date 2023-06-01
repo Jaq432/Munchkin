@@ -16,8 +16,8 @@ def MainConsole(player,lootTable):
         print("3. Equip an item from your hand")
         print("4. Sell items in your hand to gain a level")
         print("5. End your turn")
-        print("6. Exit the game")
-        print("7. Developer Interface")
+        print("6. Developer Interface")
+        print("99. Exit the game")
         
         try:
             userChoice = int(input(""))
@@ -64,14 +64,14 @@ def MainConsole(player,lootTable):
             nextPlayerTurn = True
 
         elif userChoice == 6:
-            print("Exiting the program.")
-            exit()
-
-        elif userChoice == 7:
             print("Entering the Developer Interface.")
             declareVictory = textInterfaceDeveloper.MainConsole(player,lootTable)
             if declareVictory:
                 return declareVictory
+        
+        elif userChoice == 99:
+            print("Exiting the program.")
+            exit()
 
         # Catch all
         else:
