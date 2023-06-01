@@ -22,12 +22,12 @@ The goal of this program is to replicate the gameplay of the game 'Munchkins'
 #### 3acc. If the player defeats the monster, draw the number of loot and gain the number of levels
 #### 3ad. If it is an item or curse, you can kick the door in again or play a monster card from your hand
 
-# 4. Loot the room and add the card to your hand
-## 4a. Acquire a random card from the loot table which can be any of the following:
-### 4aa. Weapons
-### 4ab. Classes
-### 4ac. Races
-### 4ad. Armor
-### 4ae. Items
+## 4. Loot the room and add the card to your hand
+### 4a. Acquire a random card from the loot table which can be any of the following:
+#### 4aa. Weapons
+#### 4ab. Classes
+#### 4ac. Races
+#### 4ad. Armor
+#### 4ae. Items
 
-# 5. Play any cards from your hand
+## 5. Play any cards from your hand
