@@ -3,7 +3,7 @@ import time
 import random
 
 # private imports
-import monster
+import Types.monster as monster
 
 # The main function of the game
 # We want to kick in the door, roll odds and either proceed with a monster or loot encounter

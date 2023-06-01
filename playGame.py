@@ -6,7 +6,7 @@ import time
 # user defined imports
 import initialize
 import createPlayers
-import textInterface
+import UserInterfaces.textInterface as textInterface
 
 
 

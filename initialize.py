@@ -1,12 +1,12 @@
-import item
-import weapon
-import monster
+import Types.item as item
+import Types.weapon as weapon
+import Types.monster as monster
 
 def initialize():
     # Initialize the tables of items, weapons, and mosnters
-    itemsFile = open("Munchkins/Resources/items.csv","r")
-    weaponsFile = open("Munchkins/Resources/weapons.csv","r")
-    monstersFile = open("Munchkins/Resources/monsters.csv","r")
+    itemsFile = open("./Resources/items.csv","r")
+    weaponsFile = open("./Resources/weapons.csv","r")
+    monstersFile = open("./Resources/monsters.csv","r")
 
     itemsTable = []
     weaponsTable = []

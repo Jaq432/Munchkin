@@ -3,7 +3,7 @@
 import time
 
 import moves
-import textInterfaceDeveloper
+import UserInterfaces.textInterfaceDeveloper as textInterfaceDeveloper
 
 
 def MainConsole(player,lootTable):
