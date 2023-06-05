@@ -1,4 +1,4 @@
-# Munchkin:
+# Munchkin
 
 ## 1. Declare the number of players which are playing
 
