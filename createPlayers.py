@@ -15,9 +15,10 @@ def createPlayers(numberOfPlayers, testPlayer1, testPlayer2):
     else:
         arrayOfPlayers.append(player.Player(testPlayer1))
         arrayOfPlayers.append(player.Player(testPlayer2))
+        return 1
     
     # Return the player array for use in the game
     return arrayOfPlayers
 
 def test_createPlayers():
-    assert createPlayers(2,"a","b")
+    assert createPlayers(2,"a","b") == 1
