@@ -1,10 +1,4 @@
-Author: Jacob Thornton
-Date: 20230515
-Version: V0.1
-
-The goal of this program is to replicate the gameplay of the game 'Munchkin'
- 
-# The gameplay is as such:
+# Munchkin:
 
 ## 1. Declare the number of players which are playing.
 
