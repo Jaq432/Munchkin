@@ -20,7 +20,6 @@ def kickInDoor(player,lootTable):
         lootTheRoom(player,dummyMonster,lootTable) # This is where I left off.
     else:
         print("You encountered a monster.")
-        # TODO: get a random monster from the monster table
         # Get the number of lines in the monsters data file
         monsterFile = open("Resources\monsters.csv", "r")
         
@@ -29,6 +28,7 @@ def kickInDoor(player,lootTable):
         for monsterLine in monsterFile:
             numOfMonsterLines += 1
 
+        # Choose a random monster number to get
         monsterValue = random.randint(1,numOfMonsterLines)
 
         lineCount = 0
