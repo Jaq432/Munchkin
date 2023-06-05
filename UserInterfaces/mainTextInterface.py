@@ -6,7 +6,7 @@ import moves
 import UserInterfaces.developerTextInterface as developerTextInterface
 
 
-def MainConsole(player,lootTable):
+def MainConsole(player, lootTable):
     nextPlayerTurn = False
     doorHasBeenKickedIn = False
     while nextPlayerTurn == False:

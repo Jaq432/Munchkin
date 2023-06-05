@@ -5,7 +5,7 @@ import time
 import moves
 
 
-def MainConsole(player,lootTable):
+def MainConsole(player, lootTable):
     returnToPlayerInterface = False
     while returnToPlayerInterface == False:
         print("What would you like to check?")

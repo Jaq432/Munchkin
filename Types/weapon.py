@@ -7,7 +7,7 @@ class Weapon:
         self.weaponCost = 0
         self.weaponSpecialProperties = None
 
-    def __init__(self,weaponName,weaponType,weaponAttack,weaponCost,weaponSpecialProperties):
+    def __init__(self, weaponName, weaponType, weaponAttack, weaponCost, weaponSpecialProperties):
         # Define all of the declared attributes of the monster
         self.weaponName = str(weaponName)
         self.weaponType = str(weaponType)
@@ -38,11 +38,11 @@ class Weapon:
     def setAttack(self, data):
         self.weaponAttack = data
     
-    def setCost(self,data):
+    def setCost(self, data):
         self.weaponCost = data
     
-    def setSpecialProperties(self,data):
+    def setSpecialProperties(self, data):
         self.weaponSpecialProperties = data
     
-    def setType(self,data):
+    def setType(self, data):
         self.weaponType = data

@@ -6,7 +6,7 @@ import moves
 import UserInterfaces.developerTextInterface as developerTextInterface
 
 
-def MainConsole(player,monster,lootTable):
+def MainConsole(player, monster, lootTable):
     nextPlayerTurn = False
     doorHasBeenKickedIn = False
     while nextPlayerTurn == False:
@@ -19,6 +19,7 @@ def MainConsole(player,monster,lootTable):
         print("5. End your turn")
         print("6. Developer Interface")
         print("99. Exit the game")
+        
         
         try:
             userChoice = int(input(""))

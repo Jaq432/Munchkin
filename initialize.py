@@ -18,7 +18,7 @@ def initialize():
         else: 
             line = line.split(",")
             # itemName,itemType,itemAttack,itemCost,itemSpecialProperties
-            itemsTable.append(item.Item(line[0],line[1],line[2],line[3],line[4]))
+            itemsTable.append(item.Item(line[0], line[1], line[2], line[3], line[4]))
     
     for line in weaponsFile:
         if line[0] == "#":
@@ -26,7 +26,7 @@ def initialize():
         else: 
             line = line.split(",")
             # weaponName,weaponType,weaponAttack,weaponCost,weaponSpecialProperties
-            weaponsTable.append(weapon.Weapon(line[0],line[1],line[2],line[3],line[4]))
+            weaponsTable.append(weapon.Weapon(line[0], line[1], line[2], line[3], line[4]))
 
     for line in monstersFile:
         if line[0] == "#":
@@ -34,7 +34,7 @@ def initialize():
         else: 
             line = line.split(",")
             # monsterName,monsterType,monsterAttack,monsterDescription,monsterLevelsGain,monsterLootGain
-            monstersTable.append(monster.Monster(line[0],line[1],line[2],line[3],line[4],line[5]))
+            monstersTable.append(monster.Monster(line[0], line[1], line[2], line[3], line[4], line[5]))
 
     # Clean up our tracks
     itemsFile.close()

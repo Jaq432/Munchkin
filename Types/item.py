@@ -7,7 +7,7 @@ class Item:
         self.itemCost = 0
         self.itemSpecialProperties = ""
 
-    def __init__(self,itemName,itemType,itemAttack,itemCost,itemSpecialProperties):
+    def __init__(self, itemName, itemType, itemAttack, itemCost, itemSpecialProperties):
         # Define all of the declared attributes of the monster
         self.itemName = str(itemName)
         self.itemType = str(itemType)

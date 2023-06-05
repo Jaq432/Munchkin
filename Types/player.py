@@ -49,24 +49,24 @@ class Player:
 
 
     # Setters    
-    def setName(self,data):
+    def setName(self, data):
         self.personalName = str(data)
 
-    def setLevel(self,data):
+    def setLevel(self, data):
         # This does relative level adjustments based on the characteristics of the monster
         self.personalLevel += data
 
-    def setRace(self,data):
+    def setRace(self, data):
         # The game might be able to have dual-race
         self.personalRace = data
 
-    def setClass(self,data):
+    def setClass(self, data):
         if self.personalClass is "barbarian" and (self.getWeaponCount < 2):
             print("Prompt to remove one of the weapons.")
         # The game might be able to have dual-class
         self.personalClass = data
 
-    def setWeapon(self,data):
+    def setWeapon(self, data):
         # The game has regulations around weapon equipment
         if (self.personalClass is "barbarian") and (self.getWeaponCount < 2):
             self.personalWeapon = data
@@ -75,16 +75,16 @@ class Player:
         else:
             print("Prompt to remove the weapon.")
 
-    def sets(self,data):
+    def sets(self, data):
         self.personalItems.append(data)
 
-    def setCardsInHand(self,data):
+    def setCardsInHand(self, data):
         self.cardsInHand.append(data)
 
     
     # Deleters
-    def deleteItem(self,data):
+    def deleteItem(self, data):
         self.personalItems.remove(data)
 
-    def deleteWeapon(self,data):
+    def deleteWeapon(self, data):
         self.personalWeapon.remove(data)
