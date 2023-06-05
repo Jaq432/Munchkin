@@ -3,15 +3,16 @@
 import time
 
 import moves
-import UserInterfaces.textInterfaceDeveloper as textInterfaceDeveloper
+import UserInterfaces.developerTextInterface as developerTextInterface
 
 
-def MainConsole(player,lootTable):
+def MainConsole(player,monster,lootTable):
     nextPlayerTurn = False
     doorHasBeenKickedIn = False
     while nextPlayerTurn == False:
-        print("What action would you like to take?")
-        print("1. Kick in the door")
+        print("You've encountered a monster. What action would you like to take?")
+        print("Your current power is: " + str(player.getAttack()) + " The monster's attack is: " + str(monster.getAttack()))
+        print("1. Battle with your current power")
         print("2. List the cards in your hand")
         print("3. Equip an item from your hand")
         print("4. Sell items in your hand to gain a level")
@@ -26,18 +27,18 @@ def MainConsole(player,lootTable):
             print("Invalid input. Please enter a number from the above list.")
             continue
 
-        # Kick in the door
-        if userChoice == 1 and doorHasBeenKickedIn == False:
-            # Kick in the door
-            # Looting the room also happens from that method
-            doorHasBeenKickedIn = True
-            moves.kickInDoor(player,lootTable)
-            print("")
-        
-        elif userChoice == 1 and doorHasBeenKickedIn == True:
-            print("This action has already been done this turn.")
-            print("")
-            time.sleep(1)
+        # Go to battle with the monster
+        if userChoice == 1:
+            if monster.getAttack() > player.getAttack():
+                print("You don't have the strength to fight this monster.")
+                time.sleep(1)
+                print("Either equip items, ask for assistance from another player, or run from the fight.")
+            if player.getAttack() >= monster.getAttack():
+                print("You have the strength to defeat this monster.")
+                time.sleep(1)
+                print("You can now loot the room.")
+                moves.lootTheRoom(player,monster,lootTable)
+                return
 
         # List cards in hand
         elif userChoice == 2:
@@ -65,7 +66,7 @@ def MainConsole(player,lootTable):
 
         elif userChoice == 6:
             print("Entering the Developer Interface.")
-            declareVictory = textInterfaceDeveloper.MainConsole(player,lootTable)
+            declareVictory = developerTextInterface.MainConsole(player,lootTable)
             if declareVictory:
                 return declareVictory
         

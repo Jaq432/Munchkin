@@ -6,7 +6,7 @@ import time
 # user defined imports
 import initialize
 import createPlayers
-import UserInterfaces.textInterface as textInterface
+import UserInterfaces.mainTextInterface as mainTextInterface
 
 
 
@@ -40,7 +40,7 @@ def main():
             time.sleep(1)
 
             # userResponse will be True if the current player is >= level 20, signifying a win
-            userResponse = textInterface.MainConsole(arrayOfPlayers[playerArrayNum],lootTable)
+            userResponse = mainTextInterface.MainConsole(arrayOfPlayers[playerArrayNum],lootTable)
 
             if userResponse:
                 break

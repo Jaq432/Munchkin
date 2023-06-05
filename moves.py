@@ -4,6 +4,7 @@ import random
 
 # private imports
 import Types.monster as monster
+import UserInterfaces.combatTextInterface as combatTextInterface
 
 # The main function of the game
 # We want to kick in the door, roll odds and either proceed with a monster or loot encounter
@@ -19,8 +20,32 @@ def kickInDoor(player,lootTable):
         lootTheRoom(player,dummyMonster,lootTable) # This is where I left off.
     else:
         print("You encountered a monster.")
-        # TODO: We want to go to the main interactive interface
-        # This is where I left off 
+        # TODO: get a random monster from the monster table
+        # Get the number of lines in the monsters data file
+        monsterFile = open("Resources\monsters.csv", "r")
+        
+        # Get a count of the lines in the file representing monsters
+        numOfMonsterLines = 0
+        for monsterLine in monsterFile:
+            numOfMonsterLines += 1
+
+        monsterValue = random.randint(1,numOfMonsterLines)
+
+        lineCount = 0
+        for monsterLine in monsterFile:
+            # Found the monster we are looking for
+            if lineCount == monsterValue:
+                monsterAttributes = monsterLine.split(",")
+                # Do the fight and pass in the monster
+                doorMonster = monster.Monster(monsterAttributes[0],monsterAttributes[1],monsterAttributes[2],monsterAttributes[3],monsterAttributes[4],monsterAttributes[5])
+                combatTextInterface(player,doorMonster,lootTable)
+                break
+            # Didn't find the monster we are looking for
+            if lineCount == numOfMonsterLines:
+                print("We reached the end of the monster file without finding the assigned monster. Something went wrong.")
+                break
+            # Increment to look at the next line
+            lineCount += 1
 
 
 
@@ -44,7 +69,7 @@ def fight(player,monster):
 
 def run(player,monster):
     print("Running from the monster. Losing a level.")
-    player.set
+    player.setLeve(player.getLevel() - 1)
 
 
 def equipWeapon(player,weapon):
