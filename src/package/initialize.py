@@ -1,13 +1,29 @@
+import os
+
 import Types.item as item
 import Types.weapon as weapon
 import Types.monster as monster
 
 
 def initialize():
+    # Get the working directory
+    dirname = os.path.dirname(__file__)
+
     # Initialize the tables of items, weapons, and mosnters
-    itemsFile = open("./Resources/items.csv", "r")
-    weaponsFile = open("./Resources/weapons.csv", "r")
-    monstersFile = open("./Resources/monsters.csv", "r")
+    # The value of "nt" is for windows which references files differently
+    if str(os.name) == "nt":
+        itemsDirectory = dirname + "\\Resources\\items.csv"
+        weaponsDirectory = dirname + "\\Resources\\weapons.csv"
+        monsterDirectory = dirname + "\\Resources\\monsters.csv"
+
+    else:
+        itemsDirectory = os.path.join(dirname, "/Resources/items.csv")
+        weaponsDirectory = os.path.join(dirname, "/Resources/weapons.csv")
+        monsterDirectory = os.path.join(dirname, "/Resources/monsters.csv")
+
+    itemsFile = open(itemsDirectory, "r")
+    weaponsFile = open(weaponsDirectory, "r")
+    monstersFile = open(monsterDirectory, "r")
 
     itemsTable = []
     weaponsTable = []

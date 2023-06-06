@@ -1,6 +1,7 @@
 # public imports
 import time
 import random
+import os
 
 # private imports
 import Types.monster as monster
@@ -24,7 +25,17 @@ def kickInDoor(player, lootTable):
     else:
         print("You encountered a monster.")
         # Get the number of lines in the monsters data file
-        monsterFile = open("src\Resources\monsters.csv", "r")
+        # Get the working directory
+        dirname = os.path.dirname(__file__)
+
+        # The value of "nt" is for windows which references files differently
+        if str(os.name) == "nt":
+            monsterDirectory = dirname + "\\Resources\\monsters.csv"
+
+        else:
+            monsterDirectory = dirname + "/Resources/monsters.csv"
+
+        monsterFile = open(monsterDirectory, "r")
 
         # Get a count of the lines in the file representing monsters
         numOfMonsterLines = 0
