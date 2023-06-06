@@ -10,23 +10,22 @@ class Player:
         self.attack = 0
         self.cardsInHand = []
 
-
     # Getters
     def getName(self):
         return self.personalName
-    
+
     def getLevel(self):
         return self.personalLevel
-    
+
     def getRace(self):
         return self.personalRace
-    
+
     def getClass(self):
         return self.personalClass
-    
+
     def getWeapons(self):
         return self.personalWeapon
-    
+
     def getWeaponCount(self):
         return len(self.getWeapons())
 
@@ -43,10 +42,9 @@ class Player:
             attackSum += item.getAttack()
 
         return attackSum 
-    
+
     def getCardsInHand(self):
         return self.cardsInHand
-
 
     # Setters    
     def setName(self, data):
@@ -81,7 +79,6 @@ class Player:
     def setCardsInHand(self, data):
         self.cardsInHand.append(data)
 
-    
     # Deleters
     def deleteItem(self, data):
         self.personalItems.remove(data)

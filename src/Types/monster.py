@@ -17,26 +17,25 @@ class Monster:
         self.monsterLevelsGain = int(monsterLevelsGain)
         self.monsterLootGain = int(monsterLootGain)
 
-        
     # Getters
     def getName(self):
         return self.monsterName
-    
+
     def getType(self):
         return self.monsterType
-    
+
     def getAttack(self):
         return self.monsterAttack
-    
+
     def getDescription(self):
         return self.monsterSpecialProperties
-    
+
     def getLevelsGain(self):
         return self.monsterLevelsGain
-    
+
     def getLootGain(self):
         return self.monsterLootGain
-    
+
     # Setters
     def setName(self, data):
         self.monsterName = data
@@ -46,7 +45,7 @@ class Monster:
 
     def setAttack(self, data):
         self.monsterAttack = data
-    
+
     def setDescription(self, data):
         self.monsterSpecialProperties = data
 

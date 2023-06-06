@@ -14,35 +14,35 @@ class Weapon:
         self.weaponAttack = int(weaponAttack)
         self.weaponCost = int(weaponCost)
         self.weaponSpecialProperties = str(weaponSpecialProperties)
-        
+
     # Getters
     def getName(self):
         return self.weaponName
-    
+
     def getAttack(self):
         return self.weaponAttack
-    
+
     def getCost(self):
         return self.weaponCost
-    
+
     def getSpecialProperties(self):
         return self.weaponSpecialProperties
-    
+
     def getType(self):
         return self.weaponType
-    
+
     # Setters
     def setName(self, data):
         self.weaponName = data
 
     def setAttack(self, data):
         self.weaponAttack = data
-    
+
     def setCost(self, data):
         self.weaponCost = data
-    
+
     def setSpecialProperties(self, data):
         self.weaponSpecialProperties = data
-    
+
     def setType(self, data):
         self.weaponType = data
