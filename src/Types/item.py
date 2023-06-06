@@ -18,16 +18,16 @@ class Item:
     # Getters
     def getName(self):
         return self.itemName
-    
+
     def getAttack(self):
         return self.itemAttack
-    
+
     def getCost(self):
         return self.itemCost
-    
+
     def getSpecialProperties(self):
         return self.itemSpecialProperties
-    
+
     def getType(self):
         return self.itemType
 
@@ -38,11 +38,11 @@ class Item:
     def setAttack(self, data):
         self.itemAttack = data
 
-    def setCost(self,data):
+    def setCost(self, data):
         self.itemCost = data
 
-    def setSpecialProperties(self,data):
+    def setSpecialProperties(self, data):
         self.itemSpecialProperties = data
 
-    def setType(self,data):
+    def setType(self, data):
         self.itemType = data
