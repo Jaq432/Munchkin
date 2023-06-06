@@ -19,6 +19,3 @@ def createPlayers(numberOfPlayers, testPlayer1, testPlayer2):
     
     # Return the player array for use in the game
     return arrayOfPlayers
-
-def test_createPlayers():
-    assert createPlayers(2,"a","b") == 1
