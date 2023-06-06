@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self,name):
+    def __init__(self, name):
         # Define all of the default attributes of the player
         self.personalName = name
         self.personalLevel = 1
@@ -36,7 +36,7 @@ class Player:
         for weapon in self.personalWeapon:
             print("a")
             attackSum += weapon.getAttack()
-        
+
         for item in self.personalItems:
             print("b")
             attackSum += item.getAttack()

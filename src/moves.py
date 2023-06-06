@@ -18,9 +18,9 @@ def kickInDoor(player, lootTable):
         time.sleep(1)
         # Create a dummy monster to pass in which has a loot value of 1 and level gain of 0
         dummyMonster = monster.Monster(
-            "DoorMonster","chest",0,"Kick in door loot dummy",0,1
+            "DoorMonster", "chest", 0, "Kick in door loot dummy", 0, 1
         )
-        lootTheRoom(player, dummyMonster, lootTable) # This is where I left off.
+        lootTheRoom(player, dummyMonster, lootTable)  # This is where I left off.
     else:
         print("You encountered a monster.")
         # Get the number of lines in the monsters data file
@@ -41,11 +41,11 @@ def kickInDoor(player, lootTable):
                 monsterAttributes = monsterLine.split(",")
                 # Do the fight and pass in the monster
                 doorMonster = monster.Monster(
-                    monsterAttributes[0], 
-                    monsterAttributes[1], 
-                    monsterAttributes[2], 
-                    monsterAttributes[3], 
-                    monsterAttributes[4], 
+                    monsterAttributes[0],
+                    monsterAttributes[1],
+                    monsterAttributes[2],
+                    monsterAttributes[3],
+                    monsterAttributes[4],
                     monsterAttributes[5]
                 )
                 combatTextInterface(player, doorMonster, lootTable)
@@ -60,12 +60,14 @@ def kickInDoor(player, lootTable):
             # Increment to look at the next line
             lineCount += 1
 
-def lootTheRoom(player, monster, lootTable): 
+
+def lootTheRoom(player, monster, lootTable):
     lenOfLootTable = len(lootTable)
     for i in range(monster.getLootGain()):
         randomSelector = random.randint(0, lenOfLootTable)
         print("The hero looted: " + str(lootTable[randomSelector].getName()))
         player.setCardsInHand(lootTable[randomSelector])
+
 
 def fight(player, monster):
     if player.getAttack() >= monster.getAttack():
@@ -78,15 +80,19 @@ def fight(player, monster):
             "Either equip items to make yourself stronger, ask for assistance, or run."
         )
 
+
 def run(player, monster):
     print("Running from the monster. Losing a level.")
     player.setLeve(player.getLevel() - 1)
 
+
 def equipWeapon(player, weapon):
     player.setWeapon(weapon)
 
+
 def equipItem(player, item):
     player.set(item)
+
 
 def unequipWeapon(player, weapon):
     player.deleteWeapon(weapon)

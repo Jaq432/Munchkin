@@ -17,18 +17,16 @@ def initialize():
         if line[0] == "#":
             continue
 
-        else: 
+        else:
             line = line.split(",")
             # itemName,itemType,itemAttack,itemCost,itemSpecialProperties
-            itemsTable.append(
-                item.Item(line[0], line[1], line[2], line[3], line[4])
-            )
+            itemsTable.append(item.Item(line[0], line[1], line[2], line[3], line[4]))
 
     for line in weaponsFile:
         if line[0] == "#":
             continue
 
-        else: 
+        else:
             line = line.split(",")
             # weaponName,weaponType,weaponAttack,weaponCost,weaponSpecialProperties
             weaponsTable.append(
@@ -39,7 +37,7 @@ def initialize():
         if line[0] == "#":
             continue
 
-        else: 
+        else:
             line = line.split(",")
             # monsterName,monsterType,monsterAttack,monsterDescription,monsterLevelsGain,monsterLootGain
             monstersTable.append(
