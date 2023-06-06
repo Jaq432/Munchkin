@@ -1,4 +1,4 @@
-from .createPlayers import playerCreation
+from src.createPlayers import playerCreation
 from src.initialize import initialize
-import src.moves
-from .playGame import main
+from src.moves import kickInDoor, lootTheRoom, fight, run, equipWeapon, equipItem, unequipWeapon
+from src.playGame import main
