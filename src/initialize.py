@@ -4,9 +4,9 @@ import Types.monster as monster
 
 def initialize():
     # Initialize the tables of items, weapons, and mosnters
-    itemsFile = open("./Resources/items.csv","r")
-    weaponsFile = open("./Resources/weapons.csv","r")
-    monstersFile = open("./Resources/monsters.csv","r")
+    itemsFile = open("src/Resources/items.csv","r")
+    weaponsFile = open("src/Resources/weapons.csv","r")
+    monstersFile = open("src/Resources/monsters.csv","r")
 
     itemsTable = []
     weaponsTable = []

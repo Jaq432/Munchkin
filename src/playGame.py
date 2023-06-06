@@ -4,8 +4,8 @@
 import time
 
 # user defined imports
-import initialize
-import createPlayers
+import initialize as initialize
+import createPlayers as createPlayers
 import UserInterfaces.mainTextInterface as mainTextInterface
 
 
@@ -22,7 +22,7 @@ def main():
     numberOfPlayers = int(input("How many players would like to play? "))
     
     # Create all of the player objects
-    arrayOfPlayers = createPlayers.createPlayers(numberOfPlayers)
+    arrayOfPlayers = createPlayers.playerCreation(numberOfPlayers,"","")
 
     # Merge the itemsTable and weaponsTable for a loot table
     lootTable = weaponsTable + itemsTable

@@ -21,7 +21,7 @@ def kickInDoor(player, lootTable):
     else:
         print("You encountered a monster.")
         # Get the number of lines in the monsters data file
-        monsterFile = open("Resources\monsters.csv", "r")
+        monsterFile = open("src\Resources\monsters.csv", "r")
         
         # Get a count of the lines in the file representing monsters
         numOfMonsterLines = 0

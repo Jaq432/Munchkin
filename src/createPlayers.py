@@ -1,6 +1,6 @@
 import Types.player as player
 
-def createPlayers(numberOfPlayers, testPlayer1, testPlayer2):
+def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
     # Make an array which holds all of the generic player info to return
     arrayOfPlayers = []
 

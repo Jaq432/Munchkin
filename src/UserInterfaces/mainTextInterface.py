@@ -2,7 +2,7 @@
 
 import time
 
-import moves
+import moves as moves
 import UserInterfaces.developerTextInterface as developerTextInterface
 
 
