@@ -1,5 +1,6 @@
 import Types.player as player
 
+
 def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
     # Make an array which holds all of the generic player info to return
     arrayOfPlayers = []
@@ -8,7 +9,7 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
         for playerNum in range(numberOfPlayers):
             # This will need to be updated so we can create players using player.py
             playerName = input("What is the name of this player? ")
-            
+
             # Start creating the player array
             arrayOfPlayers.append(player.Player(playerName))
     # Used for testing
@@ -16,6 +17,6 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
         arrayOfPlayers.append(player.Player(testPlayer1))
         arrayOfPlayers.append(player.Player(testPlayer2))
         return 1
-    
+
     # Return the player array for use in the game
     return arrayOfPlayers

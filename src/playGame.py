@@ -9,20 +9,19 @@ import createPlayers as createPlayers
 import UserInterfaces.mainTextInterface as mainTextInterface
 
 
-
 def main():
     # Introduce the game
     print("Welcome to Munchkins: Jacob Edition!")
     time.sleep(1)
 
     # Initialize our tables
-    itemsTable,weaponsTable,monstersTable = initialize.initialize()
+    itemsTable, weaponsTable, monstersTable = initialize.initialize()
 
     # Capture the number of players
     numberOfPlayers = int(input("How many players would like to play? "))
-    
+
     # Create all of the player objects
-    arrayOfPlayers = createPlayers.playerCreation(numberOfPlayers,"","")
+    arrayOfPlayers = createPlayers.playerCreation(numberOfPlayers, "", "")
 
     # Merge the itemsTable and weaponsTable for a loot table
     lootTable = weaponsTable + itemsTable
@@ -40,7 +39,9 @@ def main():
             time.sleep(1)
 
             # userResponse will be True if the current player is >= level 20, signifying a win
-            userResponse = mainTextInterface.MainConsole(arrayOfPlayers[playerArrayNum], lootTable)
+            userResponse = mainTextInterface.MainConsole(
+                arrayOfPlayers[playerArrayNum], lootTable
+            )
 
             if userResponse:
                 break
@@ -49,6 +50,7 @@ def main():
             time.sleep(1)
 
     print("Victory for " + str(arrayOfPlayers[0].getName()) + "!")
+
 
 # Run the game
 main()

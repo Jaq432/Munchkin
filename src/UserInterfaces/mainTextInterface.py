@@ -18,7 +18,7 @@ def MainConsole(player, lootTable):
         print("5. End your turn")
         print("6. Developer Interface")
         print("99. Exit the game")
-        
+
         try:
             userChoice = int(input(""))
             print("")
@@ -31,9 +31,9 @@ def MainConsole(player, lootTable):
             # Kick in the door
             # Looting the room also happens from that method
             doorHasBeenKickedIn = True
-            moves.kickInDoor(player,lootTable)
+            moves.kickInDoor(player, lootTable)
             print("")
-        
+
         elif userChoice == 1 and doorHasBeenKickedIn == True:
             print("This action has already been done this turn.")
             print("")
@@ -65,10 +65,10 @@ def MainConsole(player, lootTable):
 
         elif userChoice == 6:
             print("Entering the Developer Interface.")
-            declareVictory = developerTextInterface.MainConsole(player,lootTable)
+            declareVictory = developerTextInterface.MainConsole(player, lootTable)
             if declareVictory:
                 return declareVictory
-        
+
         elif userChoice == 99:
             print("Exiting the program.")
             exit()

@@ -8,7 +8,13 @@ class Monster:
         self.monsterLevelsGain = 0
         self.monsterLootGain = 0
 
-    def __init__(self, monsterName, monsterType, monsterAttack, monsterDescription, monsterLevelsGain, monsterLootGain):
+    def __init__(self, 
+                 monsterName, 
+                 monsterType, 
+                 monsterAttack, 
+                 monsterDescription, 
+                 monsterLevelsGain, 
+                 monsterLootGain):
         # Define all of the declared attributes of the monster
         self.monsterName = str(monsterName)
         self.monsterType = str(monsterType)

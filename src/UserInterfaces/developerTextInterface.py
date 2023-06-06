@@ -19,7 +19,7 @@ def MainConsole(player, lootTable):
         print("8. Player Level")
         print("98. Declare victory for this character.")
         print("99. Return to the player interface.")
-        
+
         try:
             userChoice = int(input(""))
             print("")
