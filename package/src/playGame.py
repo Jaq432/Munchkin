@@ -4,7 +4,7 @@
 import time
 
 # user defined imports
-import initialize as initialize
+import initializeBackend as initialize
 import createPlayers as createPlayers
 import UserInterfaces.mainTextInterface as mainTextInterface
 
