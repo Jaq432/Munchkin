@@ -15,8 +15,8 @@ class Monster:
         monsterAttack,
         monsterDescription,
         monsterLevelsGain,
-        monsterLootGain
-        ):
+        monsterLootGain,
+    ):
         # Define all of the declared attributes of the monster
         self.monsterName = str(monsterName)
         self.monsterType = str(monsterType)

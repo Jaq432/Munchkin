@@ -41,12 +41,12 @@ class Player:
             print("b")
             attackSum += item.getAttack()
 
-        return attackSum 
+        return attackSum
 
     def getCardsInHand(self):
         return self.cardsInHand
 
-    # Setters    
+    # Setters
     def setName(self, data):
         self.personalName = str(data)
 

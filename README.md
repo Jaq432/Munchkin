@@ -1,5 +1,10 @@
 # Munchkin
 
+<p>To run this game, you'll need python installed. I coded this in v3.8.2.<br>
+From the command line, you can navigate to the src folder and run the following command:<br>
+python ./playGame.py<br>
+To play the game, you have to have more than 1 player.</p>
+
 ## 1. Declare the number of players which are playing
 
 ## 2. Give all of the players names

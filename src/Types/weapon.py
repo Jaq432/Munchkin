@@ -8,7 +8,7 @@ class Weapon:
         self.weaponSpecialProperties = None
 
     def __init__(
-            self, weaponName, weaponType, weaponAttack, weaponCost, weaponSpecialProperties
+        self, weaponName, weaponType, weaponAttack, weaponCost, weaponSpecialProperties
     ):
         # Define all of the declared attributes of the monster
         self.weaponName = str(weaponName)

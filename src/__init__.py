@@ -1,3 +1,4 @@
+'''
 from src.createPlayers import playerCreation
 from src.initialize import initialize
 from src.moves import (
@@ -7,6 +8,7 @@ from src.moves import (
     run,
     equipWeapon,
     equipItem,
-    unequipWeapon
+    unequipWeapon,
 )
 from src.playGame import main
+'''

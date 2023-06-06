@@ -46,7 +46,7 @@ def kickInDoor(player, lootTable):
                     monsterAttributes[2],
                     monsterAttributes[3],
                     monsterAttributes[4],
-                    monsterAttributes[5]
+                    monsterAttributes[5],
                 )
                 combatTextInterface(player, doorMonster, lootTable)
                 break

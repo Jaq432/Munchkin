@@ -12,9 +12,9 @@ def MainConsole(player, monster, lootTable):
     while nextPlayerTurn == False:
         print("You've encountered a monster. What action would you like to take?")
         print(
-            "Your current power is: " 
-            + str(player.getAttack()) 
-            + " The monster's attack is: " 
+            "Your current power is: "
+            + str(player.getAttack())
+            + " The monster's attack is: "
             + str(monster.getAttack())
         )
         print("1. Battle with your current power")
