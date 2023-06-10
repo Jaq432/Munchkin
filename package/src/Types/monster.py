@@ -1,13 +1,4 @@
 class Monster:
-    def __init__(self):
-        # Define all of the default attributes of the monster
-        self.monsterName = ""
-        self.monsterType = ""
-        self.monsterAttack = 0
-        self.monsterDescription = ""
-        self.monsterLevelsGain = 0
-        self.monsterLootGain = 0
-
     def __init__(
         self,
         monsterName,

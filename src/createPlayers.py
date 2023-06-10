@@ -12,7 +12,7 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
 
             # Start creating the player array
             arrayOfPlayers.append(player.Player(playerName))
-    # TODO: Used for testing
+    # Used for testing
     else:
         arrayOfPlayers.append(player.Player(testPlayer1))
         arrayOfPlayers.append(player.Player(testPlayer2))

@@ -1,14 +1,23 @@
 class Player:
-    def __init__(self, name):
+    def __init__(self,
+        name,
+        level,
+        race,
+        personalClass,
+        weapon,
+        items,
+        attack,
+        cardsInHand
+    ):
         # Define all of the default attributes of the player
         self.personalName = name
         self.personalLevel = 1
-        self.personalRace = []
-        self.personalClass = []
-        self.personalWeapon = []
-        self.personalItems = []
-        self.attack = 0
-        self.cardsInHand = []
+        self.personalRace = race
+        self.personalClass = personalClass
+        self.personalWeapon = weapon
+        self.personalItems = items
+        self.attack = attack
+        self.cardsInHand = cardsInHand
 
     # Getters
     def getName(self):
