@@ -1,3 +1,6 @@
+import Types.item as item
+import Types.weapon as weapon
+
 class Player:
     def __init__(self,
         name,
@@ -83,7 +86,7 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data):
-        if self.personalClass is "barbarian" and (self.getWeaponCount < 2):
+        if self.personalClass == "barbarian" and (self.getWeaponCount < 2):
             print("Prompt to remove one of the weapons.")
         # The game might be able to have dual-class
         self.personalClass = data
@@ -98,10 +101,10 @@ class Player:
             print("Prompt to remove the weapon.")
 
     def setItems(self, data):
-        self.personalItems.append(data)
+        self.personalItems = data
 
     def setCardsInHand(self, data):
-        self.cardsInHand.append(data)
+        self.cardsInHand = data
 
     # Deleters
     def deleteItem(self, data):
@@ -112,20 +115,33 @@ class Player:
 
     # Equip Card
     def equipCard(self, data):
-        # the format is <class 'datatype'>
-        if type(data) == "<class 'Weapon'>":
-            self.personalWeapon.append(data)
-        elif type(data) == "<class 'Item'>":
-            self.personalItems.append(data)
+        # Weapon
+        if isinstance(data, weapon.Weapon):
+            # Isn't empty
+            if isinstance(self.personalWeapon, None):
+                self.personalWeapon = data
+            # If a barbarian, allow 2 weapons
+            if (self.personalClass == "barbarian") and (self.getWeaponCount < 2):
+                self.personalWeapon.append(data)
+            else:
+                print("Prompt to remove the weapon.")
+
+        # Item
+        elif isinstance(data, item.Item):
+            # Isn't empty
+            if isinstance(self.personalItems, None):
+                self.personalItems = data
+            else:
+                self.personalItems.append(data)
         else:
             print("Something went wrong with equippng the card.")
 
     # Unequip Card
     def unequipCard(self, data):
         # the format is <class 'int'>
-        if type(data) == "<class 'Weapon'>":
+        if isinstance(data, weapon.Weapon):
             self.personalWeapon.remove(data)
-        elif type(data) == "<class 'Item'>":
+        elif isinstance(data, item.Item):
             self.personalItems.remove(data)
         else:
             print("Something went wrong with unequippng the card.")

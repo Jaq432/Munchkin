@@ -3,19 +3,22 @@
 import time
 
 import moves
+import Types.item as item
+import Types.monster as monster
 
 
 def MainConsole(player, lootTable):
     returnToPlayerInterface = False
     while returnToPlayerInterface == False:
         print("What would you like to check?")
-        print("1. Player Name")
-        print("2. Player Cards in Hand")
-        print("3. Player Race")
-        print("4. Player Class")
-        print("5. Player Weapons")
-        print("6. Player Attack")
-        print("7. Player Level")
+        print("1. Report Player Name")
+        print("2. Report Player Cards in Hand")
+        print("3. Report Player Race")
+        print("4. Report Player Class")
+        print("5. Report Player Weapons")
+        print("6. Report Player Attack")
+        print("7. Report Player Level")
+        print("8. Give player test cards")
         print("98. Declare victory for this character.")
         print("99. Return to the player interface.")
 
@@ -68,6 +71,18 @@ def MainConsole(player, lootTable):
         elif userChoice == 7:
             print("This is your character's level:")
             print(player.getLevel())
+
+        # Equip Test Cards
+        elif userChoice == 8:
+            print("Equipping a predetermined set of cards.")
+            card1 = item.Item("Basic Helmet","head",1,50,"Better than nothing (leather)")
+            card2 = item.Item("Basic Chest","chest",1,50,"Better than nothing (leather)")
+            card3 = item.Item("Basic Gloves","hands",1,50,"Better than nothing (leather)")
+            card4 = item.Item("Basic Boots","feet",1,50,"Better than nothing (leather)")
+            player.equipCard(card1)
+            player.equipCard(card2)
+            player.equipCard(card3)
+            player.equipCard(card4)
 
         # Declare Victory
         elif userChoice == 98:
