@@ -47,6 +47,10 @@ def MainConsole(player, monster, lootTable):
                 time.sleep(1)
                 print("You can now loot the room.")
                 moves.lootTheRoom(player, monster, lootTable)
+                time.sleep(1)
+                # Adjust the character's level
+                player.setLevel(player.getLevel() + monster.getLevelsGain())
+                print("Your character is now level " + str(player.getLevel()))
                 return
 
         # List cards in hand

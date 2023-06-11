@@ -22,6 +22,8 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
                 [] #  Cards in hand
             )
             arrayOfPlayers.append(newPlayer)
+        # Spacing for interface
+        print("")
     # TODO: Used for testing
     else:
         arrayOfPlayers.append(player.Player(testPlayer1))

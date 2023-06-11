@@ -4,6 +4,7 @@ import time
 
 import moves
 import Types.item as item
+import Types.weapon as weapon
 import Types.monster as monster
 
 
@@ -59,8 +60,8 @@ def MainConsole(player, lootTable):
         elif userChoice == 5:
             itemIndex = 1
             print("This is a list of your equipped weapons:")
-            for weapon in player.getWeapons():
-                print(str(itemIndex) + ". " + str(weapon.getName()))
+            for equippedWeapon in player.getWeapons():
+                print(str(itemIndex) + ". " + str(equippedWeapon.getName()))
                 itemIndex += 1
 
         # Player Items
@@ -88,10 +89,12 @@ def MainConsole(player, lootTable):
             card2 = item.Item("Basic Chest","chest",1,50,"Better than nothing (leather)")
             card3 = item.Item("Basic Gloves","hands",1,50,"Better than nothing (leather)")
             card4 = item.Item("Basic Boots","feet",1,50,"Better than nothing (leather)")
+            card5 = weapon.Weapon("Iron Claymore","2 hand",2,200,"Clunky but effective")
             player.equipCard(card1)
             player.equipCard(card2)
             player.equipCard(card3)
             player.equipCard(card4)
+            player.equipCard(card5)
 
         # Declare Victory
         elif userChoice == 98:
@@ -107,3 +110,5 @@ def MainConsole(player, lootTable):
         else:
             print("That wasn't an option.")
             continue
+
+        print("")

@@ -84,9 +84,8 @@ class Player:
         self.personalName = str(data)
 
     def setLevel(self, data):
-        # This does relative level adjustments 
         # based on the characteristics of the monster
-        self.personalLevel += data
+        self.personalLevel = data
 
     def setRace(self, data):
         # The game might be able to have dual-race
@@ -102,7 +101,7 @@ class Player:
         # The game has regulations around weapon equipment
         if (self.personalClass == "barbarian") and (len(self.getWeapons) < 2):
             self.personalWeapon = data
-        elif self.getWeaponCount != 1:
+        elif len(self.personalWeapon) != 1:
             self.personalWeapon = data
         else:
             print("Prompt to remove the weapon.")
@@ -125,9 +124,9 @@ class Player:
         # Weapon
         if isinstance(data, weapon.Weapon):
             # Is empty
-            if self.getWeaponCount == 0:
+            if len(self.personalWeapon) == 0:
                 self.personalWeapon = data
-            if self.getWeaponCount == 1 and self.personalClass == "barbarian":
+            if len(self.personalWeapon) == 1 and self.personalClass == "barbarian":
                 self.personalWeapon.append(data)
             else:
                 print("Prompt to unequip a weapon.")
