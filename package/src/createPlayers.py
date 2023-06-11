@@ -14,12 +14,12 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
             newPlayer = player.Player(
                 playerName, #  Name
                 1, #  Level
-                None, #  Race
-                None, #  Class
-                None, #  Weapons
-                None, #  Items
+                [], #  Race
+                [], #  Class
+                [], #  Weapons
+                [], #  Items
                 1, #  Attack
-                None #  Cards in hand
+                [] #  Cards in hand
             )
             arrayOfPlayers.append(newPlayer)
     # TODO: Used for testing

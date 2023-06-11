@@ -86,14 +86,14 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data):
-        if self.personalClass == "barbarian" and (self.getWeaponCount < 2):
+        if self.personalClass == "barbarian" and (len(self.getWeapons) < 2):
             print("Prompt to remove one of the weapons.")
         # The game might be able to have dual-class
         self.personalClass = data
 
     def setWeapon(self, data):
         # The game has regulations around weapon equipment
-        if (self.personalClass == "barbarian") and (self.getWeaponCount < 2):
+        if (self.personalClass == "barbarian") and (len(self.getWeapons) < 2):
             self.personalWeapon = data
         elif self.getWeaponCount != 1:
             self.personalWeapon = data
@@ -117,22 +117,17 @@ class Player:
     def equipCard(self, data):
         # Weapon
         if isinstance(data, weapon.Weapon):
-            # Isn't empty
-            if isinstance(self.personalWeapon, None):
+            # Is empty
+            if self.getWeaponCount == 0:
                 self.personalWeapon = data
-            # If a barbarian, allow 2 weapons
-            if (self.personalClass == "barbarian") and (self.getWeaponCount < 2):
+            if self.getWeaponCount == 1 and self.personalClass == "barbarian":
                 self.personalWeapon.append(data)
             else:
-                print("Prompt to remove the weapon.")
+                print("Prompt to unequip a weapon.")
 
         # Item
         elif isinstance(data, item.Item):
-            # Isn't empty
-            if isinstance(self.personalItems, None):
-                self.personalItems = data
-            else:
-                self.personalItems.append(data)
+            self.personalItems.append(data)
         else:
             print("Something went wrong with equippng the card.")
 
