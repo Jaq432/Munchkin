@@ -14,7 +14,7 @@ def kickInDoor(player, lootTable):
     print("Kicking in the door.")
     # May the odds be in your favor
     decidingValue = random.randint(1, 10)
-    if decidingValue == 10:
+    if decidingValue == 11: #  10
         print("You encountered an item. Looting the room.")
         time.sleep(1)
         # Create a dummy monster to pass in which has a loot value of 1 and level gain of 0
@@ -22,8 +22,8 @@ def kickInDoor(player, lootTable):
             "DoorMonster", "chest", 0, "Kick in door loot dummy", 0, 1
         )
         lootTheRoom(player, dummyMonster, lootTable)  # This is where I left off.
+    # Encounter a monster
     else:
-        print("You encountered a monster.")
         # Get the number of lines in the monsters data file
         # Get the working directory
         dirname = os.path.dirname(__file__)
@@ -42,8 +42,14 @@ def kickInDoor(player, lootTable):
         for monsterLine in monsterFile:
             numOfMonsterLines += 1
 
+        # Closing the file so that I can reopen it later
+        monsterFile.close()
+
         # Choose a random monster number to get
         monsterValue = random.randint(1, numOfMonsterLines)
+
+        # Reopening the monster file
+        monsterFile = open(monsterDirectory, "r")
 
         lineCount = 0
         for monsterLine in monsterFile:
@@ -59,12 +65,13 @@ def kickInDoor(player, lootTable):
                     monsterAttributes[4],
                     monsterAttributes[5],
                 )
-                combatTextInterface(player, doorMonster, lootTable)
+                print("You encountered a " + str(doorMonster.getName()) + "!")
+                combatTextInterface.MainConsole(player, doorMonster, lootTable)
                 break
             # Didn't find the monster we are looking for
             if lineCount == numOfMonsterLines:
                 print(
-                    "We reached the end of the monster file without finding the assigned monster.\
+                    "We reached the end of the monster file without finding the assigned monster. \
                         Something went wrong."
                 )
                 break

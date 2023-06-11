@@ -11,13 +11,25 @@ class Player:
     ):
         # Define all of the default attributes of the player
         self.personalName = name
-        self.personalLevel = 1
+        self.personalLevel = level
         self.personalRace = race
         self.personalClass = personalClass
         self.personalWeapon = weapon
         self.personalItems = items
         self.attack = attack
         self.cardsInHand = cardsInHand
+
+        # This is here for testing
+        if False:
+            print("Initialized character with the following attributes: ")
+            print("Name: " + str(name))
+            print("Level: " + str(level))
+            print("Race: " + str(race))
+            print("Class: " + str(personalClass))
+            print("Weapons: " + str(weapon))
+            print("Items: " + str(items))
+            print("Attack: " + str(attack))
+            print("Cards in hand: " + str(cardsInHand))
 
     # Getters
     def getName(self):
@@ -34,26 +46,29 @@ class Player:
 
     def getWeapons(self):
         return self.personalWeapon
-
-    def getWeaponCount(self):
-        return len(self.getWeapons())
+    
+    def getItems(self):
+        return self.personalItems
 
     def getAttack(self):
         attackSum = self.attack
 
         # We need to account for dual wielding
-        for weapon in self.personalWeapon:
-            print("a")
-            attackSum += weapon.getAttack()
+        if self.personalWeapon != None:
+            for weapon in self.personalWeapon:
+                attackSum += weapon.getAttack()
 
-        for item in self.personalItems:
-            print("b")
-            attackSum += item.getAttack()
+        if self.personalItems != None:
+            for item in self.personalItems:
+                attackSum += item.getAttack()
 
         return attackSum
 
     def getCardsInHand(self):
-        return self.cardsInHand
+        if self.cardsInHand != None:
+            return self.cardsInHand
+        else:
+            return None
 
     # Setters
     def setName(self, data):
@@ -75,14 +90,14 @@ class Player:
 
     def setWeapon(self, data):
         # The game has regulations around weapon equipment
-        if (self.personalClass is "barbarian") and (self.getWeaponCount < 2):
+        if (self.personalClass == "barbarian") and (self.getWeaponCount < 2):
             self.personalWeapon = data
         elif self.getWeaponCount != 1:
             self.personalWeapon = data
         else:
             print("Prompt to remove the weapon.")
 
-    def sets(self, data):
+    def setItems(self, data):
         self.personalItems.append(data)
 
     def setCardsInHand(self, data):
@@ -94,3 +109,23 @@ class Player:
 
     def deleteWeapon(self, data):
         self.personalWeapon.remove(data)
+
+    # Equip Card
+    def equipCard(self, data):
+        # the format is <class 'datatype'>
+        if type(data) == "<class 'Weapon'>":
+            self.personalWeapon.append(data)
+        elif type(data) == "<class 'Item'>":
+            self.personalItems.append(data)
+        else:
+            print("Something went wrong with equippng the card.")
+
+    # Unequip Card
+    def unequipCard(self, data):
+        # the format is <class 'int'>
+        if type(data) == "<class 'Weapon'>":
+            self.personalWeapon.remove(data)
+        elif type(data) == "<class 'Item'>":
+            self.personalItems.remove(data)
+        else:
+            print("Something went wrong with unequippng the card.")

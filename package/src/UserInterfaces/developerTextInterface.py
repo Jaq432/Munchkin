@@ -14,9 +14,8 @@ def MainConsole(player, lootTable):
         print("3. Player Race")
         print("4. Player Class")
         print("5. Player Weapons")
-        print("6. Player Weapons Count")
-        print("7. Player Attack")
-        print("8. Player Level")
+        print("6. Player Attack")
+        print("7. Player Level")
         print("98. Declare victory for this character.")
         print("99. Return to the player interface.")
 
@@ -60,18 +59,13 @@ def MainConsole(player, lootTable):
                 print(str(itemIndex) + ". " + str(card.getName()))
                 itemIndex += 1
 
-        # Player Weapons Count
-        elif userChoice == 6:
-            print("This is how many weapons you have equipped:")
-            print(player.getWeaponCount())
-
         # Player Attack
-        elif userChoice == 7:
+        elif userChoice == 6:
             print("This is your character's attack:")
             print(player.getAttack())
 
         # Player Level
-        elif userChoice == 8:
+        elif userChoice == 7:
             print("This is your character's level:")
             print(player.getLevel())
 

@@ -21,8 +21,9 @@ def MainConsole(player, monster, lootTable):
         print("2. List the cards in your hand")
         print("3. Equip an item from your hand")
         print("4. Sell items in your hand to gain a level")
-        print("5. End your turn")
-        print("6. Developer Interface")
+        print("5. Run")
+        print("6. Return to the previous menu")
+        print("7. Developer Interface")
         print("99. Exit the game")
 
         try:
@@ -40,6 +41,7 @@ def MainConsole(player, monster, lootTable):
                 print(
                     "Either equip items, ask for assistance from another player, or run from the fight."
                 )
+                print("")
             if player.getAttack() >= monster.getAttack():
                 print("You have the strength to defeat this monster.")
                 time.sleep(1)
@@ -50,28 +52,52 @@ def MainConsole(player, monster, lootTable):
         # List cards in hand
         elif userChoice == 2:
             itemIndex = 1
-            print("This is a list of the items in your hand:")
-            for card in player.getCardsInHand():
-                print(str(itemIndex) + ". " + str(card.getName()))
-                itemIndex += 1
-            print("")
-            time.sleep(1)
+            print("This is a list of the cards in your hand:")
+            if player.getCardsInHand() != None:
+                for card in player.getCardsInHand():
+                    print(str(itemIndex) + ". " + str(card.getName()))
+                    itemIndex += 1
+                print("")
+                time.sleep(1)
+            else:
+                print("You don't have any cards in your hand.")
+                print("")
+                time.sleep(1)
 
-        # Equip an item from hand
+        # Equip an card from hand
         elif userChoice == 3:
-            print("3")
+            if player.getCardsInHand() != None:
+                print("Which card would you like to equip?")
+                cardIndex = 1
+                for card in player.getCardsInHand():
+                    print(str(cardIndex) + ". " + str(card.getName()))
+                    cardIndex += 1
+                print("")
+                time.sleep(1)
+                cardChoice = input("Please enter the card number: ")
+                cardIndex = 1
+                for card in player.getCardsInHand():
+                    if cardIndex == cardChoice:
+                        player.equipCard(card)
+            else:
+                print("You don't have any cards in your hand.")
+                print("")
+                time.sleep(1)
 
         # Sell items for levels
         elif userChoice == 4:
             print("4")
 
         elif userChoice == 5:
+            print("5")
+
+        elif userChoice == 6:
             if player.getLevel() >= 20:
                 # This is the victory flag
                 return True
             nextPlayerTurn = True
 
-        elif userChoice == 6:
+        elif userChoice == 7:
             print("Entering the Developer Interface.")
             declareVictory = developerTextInterface.MainConsole(player, lootTable)
             if declareVictory:

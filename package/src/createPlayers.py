@@ -11,7 +11,17 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
             playerName = input("What is the name of this player? ")
 
             # Start creating the player array
-            arrayOfPlayers.append(player.Player(playerName))
+            newPlayer = player.Player(
+                playerName, #  Name
+                1, #  Level
+                None, #  Race
+                None, #  Class
+                None, #  Weapons
+                None, #  Items
+                1, #  Attack
+                None #  Cards in hand
+            )
+            arrayOfPlayers.append(newPlayer)
     # TODO: Used for testing
     else:
         arrayOfPlayers.append(player.Player(testPlayer1))
