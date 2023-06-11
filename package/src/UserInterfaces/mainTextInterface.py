@@ -51,7 +51,26 @@ def MainConsole(player, lootTable):
 
         # Equip an item from hand
         elif userChoice == 3:
-            print("3")
+            if player.getCardsInHand() != None:
+                print("Which card would you like to equip?")
+                cardIndex = 1
+                for card in player.getCardsInHand():
+                    print(str(cardIndex) + ". " + str(card.getName()))
+                    cardIndex += 1
+                print("")
+                time.sleep(1)
+                cardChoice = input("Please enter the card number: ")
+                cardIndex = 1
+                for card in player.getCardsInHand():
+                    print("Card Index = " + str(cardIndex))
+                    print("Card Choice = " + str(cardChoice))
+                    if cardIndex == cardChoice:
+                        player.equipCard(card)
+                        player.cardsInHand.remove(card)
+            else:
+                print("You don't have any cards in your hand.")
+                print("")
+                time.sleep(1)
 
         # Sell items for levels
         elif userChoice == 4:

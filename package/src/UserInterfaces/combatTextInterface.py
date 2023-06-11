@@ -10,7 +10,7 @@ def MainConsole(player, monster, lootTable):
     nextPlayerTurn = False
     doorHasBeenKickedIn = False
     while nextPlayerTurn == False:
-        print("You've encountered a monster. What action would you like to take?")
+        print("What action would you like to take?")
         print(
             "Your current power is: "
             + str(player.getAttack())

@@ -48,10 +48,16 @@ class Player:
         return self.personalClass
 
     def getWeapons(self):
-        return self.personalWeapon
+        if self.personalWeapon != None:
+            return self.personalWeapon
+        else:
+            return []
     
     def getItems(self):
-        return self.personalItems
+        if self.personalItems != None:
+            return self.personalItems
+        else:
+            return []
 
     def getAttack(self):
         attackSum = self.attack
@@ -71,14 +77,15 @@ class Player:
         if self.cardsInHand != None:
             return self.cardsInHand
         else:
-            return None
+            return []
 
     # Setters
     def setName(self, data):
         self.personalName = str(data)
 
     def setLevel(self, data):
-        # This does relative level adjustments based on the characteristics of the monster
+        # This does relative level adjustments 
+        # based on the characteristics of the monster
         self.personalLevel += data
 
     def setRace(self, data):
@@ -104,7 +111,7 @@ class Player:
         self.personalItems = data
 
     def setCardsInHand(self, data):
-        self.cardsInHand = data
+        self.cardsInHand.append(data)
 
     # Deleters
     def deleteItem(self, data):
@@ -128,6 +135,7 @@ class Player:
         # Item
         elif isinstance(data, item.Item):
             self.personalItems.append(data)
+            
         else:
             print("Something went wrong with equippng the card.")
 

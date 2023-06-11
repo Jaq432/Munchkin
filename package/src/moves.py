@@ -80,7 +80,7 @@ def kickInDoor(player, lootTable):
 
 
 def lootTheRoom(player, monster, lootTable):
-    lenOfLootTable = len(lootTable)
+    lenOfLootTable = len(lootTable) - 1
     for i in range(monster.getLootGain()):
         randomSelector = random.randint(0, lenOfLootTable)
         print("The hero looted: " + str(lootTable[randomSelector].getName()))

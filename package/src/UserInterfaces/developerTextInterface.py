@@ -16,9 +16,10 @@ def MainConsole(player, lootTable):
         print("3. Report Player Race")
         print("4. Report Player Class")
         print("5. Report Player Weapons")
-        print("6. Report Player Attack")
-        print("7. Report Player Level")
-        print("8. Give player test cards")
+        print("6. Report Player Items")
+        print("7. Report Player Attack")
+        print("8. Report Player Level")
+        print("9. Give player test cards")
         print("98. Declare victory for this character.")
         print("99. Return to the player interface.")
 
@@ -59,21 +60,29 @@ def MainConsole(player, lootTable):
             itemIndex = 1
             print("This is a list of your equipped weapons:")
             for weapon in player.getWeapons():
-                print(str(itemIndex) + ". " + str(card.getName()))
+                print(str(itemIndex) + ". " + str(weapon.getName()))
+                itemIndex += 1
+
+        # Player Items
+        elif userChoice == 6:
+            itemIndex = 1
+            print("This is a list of your equipped items:")
+            for equippedItem in player.getItems():
+                print(str(itemIndex) + ". " + str(equippedItem.getName()))
                 itemIndex += 1
 
         # Player Attack
-        elif userChoice == 6:
+        elif userChoice == 7:
             print("This is your character's attack:")
             print(player.getAttack())
 
         # Player Level
-        elif userChoice == 7:
+        elif userChoice == 8:
             print("This is your character's level:")
             print(player.getLevel())
 
         # Equip Test Cards
-        elif userChoice == 8:
+        elif userChoice == 9:
             print("Equipping a predetermined set of cards.")
             card1 = item.Item("Basic Helmet","head",1,50,"Better than nothing (leather)")
             card2 = item.Item("Basic Chest","chest",1,50,"Better than nothing (leather)")
