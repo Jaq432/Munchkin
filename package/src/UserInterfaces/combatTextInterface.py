@@ -57,7 +57,7 @@ def MainConsole(player, monster, lootTable):
         elif userChoice == 2:
             itemIndex = 1
             print("This is a list of the cards in your hand:")
-            if player.getCardsInHand() != None:
+            if player.getCardsInHand() != []:
                 for card in player.getCardsInHand():
                     print(str(itemIndex) + ". " + str(card.getName()))
                     itemIndex += 1
@@ -70,7 +70,7 @@ def MainConsole(player, monster, lootTable):
 
         # Equip an card from hand
         elif userChoice == 3:
-            if player.getCardsInHand() != None:
+            if player.getCardsInHand() != []:
                 print("Which card would you like to equip?")
                 cardIndex = 1
                 for card in player.getCardsInHand():

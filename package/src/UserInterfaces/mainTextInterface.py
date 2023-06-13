@@ -59,14 +59,19 @@ def MainConsole(player, lootTable):
                     cardIndex += 1
                 print("")
                 time.sleep(1)
-                cardChoice = input("Please enter the card number: ")
-                cardIndex = 1
-                for card in player.getCardsInHand():
-                    print("Card Index = " + str(cardIndex))
-                    print("Card Choice = " + str(cardChoice))
-                    if cardIndex == cardChoice:
-                        player.equipCard(card)
-                        player.cardsInHand.remove(card)
+
+                try:
+                    cardChoice = int(input(""))
+                    print("")
+                except:
+                    print("Invalid input. Please enter a number from the above list.")
+                    print("")
+                    time.sleep(1)
+                    continue
+
+                cardToEquip = player.getCardsInHand()[int(cardChoice) - 1]
+                player.equipCard(cardToEquip)
+
             else:
                 print("You don't have any cards in your hand.")
                 print("")

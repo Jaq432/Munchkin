@@ -48,10 +48,7 @@ class Player:
         return self.personalClass
 
     def getWeapons(self):
-        if self.personalWeapon != None:
-            return self.personalWeapon
-        else:
-            return []
+        return self.personalWeapon
     
     def getItems(self):
         if self.personalItems != None:
@@ -92,16 +89,16 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data):
-        if self.personalClass == "barbarian" and (len(self.getWeapons) < 2):
+        if self.personalClass == "barbarian" and (len(self.getWeapons()) < 2):
             print("Prompt to remove one of the weapons.")
         # The game might be able to have dual-class
         self.personalClass = data
 
     def setWeapon(self, data):
         # The game has regulations around weapon equipment
-        if (self.personalClass == "barbarian") and (len(self.getWeapons) < 2):
+        if (self.personalClass == "barbarian") and (len(self.getWeapons()) < 2):
             self.personalWeapon = data
-        elif len(self.personalWeapon) != 1:
+        elif len(self.getWeapons()) != 1:
             self.personalWeapon = data
         else:
             print("Prompt to remove the weapon.")
@@ -124,16 +121,23 @@ class Player:
         # Weapon
         if isinstance(data, weapon.Weapon):
             # Is empty
-            if len(self.personalWeapon) == 0:
-                self.personalWeapon = data
-            if len(self.personalWeapon) == 1 and self.personalClass == "barbarian":
+            if len(self.getWeapons()) == 0:
+                # Equip
                 self.personalWeapon.append(data)
+                # Remove from hand
+                self.cardsInHand.remove(data)
+            elif len(self.getWeapons()) == 1 and self.personalClass == "barbarian":
+                # Equip
+                self.personalWeapon.append(data)
+                # Remove from hand
+                self.cardsInHand.remove(data)
             else:
                 print("Prompt to unequip a weapon.")
 
         # Item
         elif isinstance(data, item.Item):
             self.personalItems.append(data)
+            self.cardsInHand.remove(data)
             
         else:
             print("Something went wrong with equippng the card.")
