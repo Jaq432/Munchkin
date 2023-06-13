@@ -77,8 +77,29 @@ def kickInDoor(player, lootTable):
                 break
             # Increment to look at the next line
             lineCount += 1
+'''
+dropTable = {
+    'Leather Item': 50, #50% chance
+    'Iron Item': 25, #25% chance
+    'Steel Item': 10 #10% chance
+}
 
+# Function to perform weighted random selection
+def weighted_random_selection(drop_table):
+    total_weight = sum(drop_table.values())
+    rand_num = random.uniform(0, total_weight)
+    current_weight = 0
 
+    for item, weight in drop_table.items():
+        current_weight += weight
+        if rand_num <= current_weight:
+            return item
+
+# Example usage
+for _ in range(10):
+    dropped_item = weighted_random_selection(drop_table)
+    print("Dropped item:", dropped_item)
+'''
 def lootTheRoom(player, monster, lootTable):
     # Get the total value of weighted drop chance = 340 as of writing
     totalDropChanceWeight = 0
