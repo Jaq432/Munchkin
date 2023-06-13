@@ -14,7 +14,7 @@ def kickInDoor(player, lootTable):
     print("Kicking in the door.")
     # May the odds be in your favor
     decidingValue = random.randint(1, 10)
-    if decidingValue == 11: #  10
+    if decidingValue == 10: 
         print("You encountered an item. Looting the room.")
         time.sleep(1)
         # Create a dummy monster to pass in which has a loot value of 1 and level gain of 0
@@ -80,11 +80,21 @@ def kickInDoor(player, lootTable):
 
 
 def lootTheRoom(player, monster, lootTable):
-    lenOfLootTable = len(lootTable) - 1
+    # Get the total value of weighted drop chance = 340 as of writing
+    totalDropChanceWeight = 0
+    for item in lootTable:
+        totalDropChanceWeight += item.getDropChance()
+
     for i in range(monster.getLootGain()):
-        randomSelector = random.randint(0, lenOfLootTable)
-        print("The hero looted: " + str(lootTable[randomSelector].getName()))
-        player.setCardsInHand(lootTable[randomSelector])
+        # This reperesents the index of the random item that we will loot
+        randomSelector = random.randint(0, totalDropChanceWeight)
+        index = 0
+        for item in lootTable:
+            if index == randomSelector:
+                player.setCardsInHand(lootTable[randomSelector])
+                print("The hero looted: " + str(lootTable[randomSelector].getName()))
+                index += 1
+                continue
 
 
 def fight(player, monster):

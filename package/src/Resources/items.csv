@@ -1,25 +1,13 @@
-# name, equip location, attack value, cost, special properties
-Basic Helmet,head,1,50,Better than nothing (leather)
-Basic Chest,chest,1,50,Better than nothing (leather)
-Basic Gloves,hands,1,50,Better than nothing (leather)
-Basic Boots,feet,1,50,Better than nothing (leather)
-Basic Helmet,head,1,50,Better than nothing (leather)
-Basic Chest,chest,1,50,Better than nothing (leather)
-Basic Gloves,hands,1,50,Better than nothing (leather)
-Basic Boots,feet,1,50,Better than nothing (leather)
-Basic Helmet,head,1,50,Better than nothing (leather)
-Basic Chest,chest,1,50,Better than nothing (leather)
-Basic Gloves,hands,1,50,Better than nothing (leather)
-Basic Boots,feet,1,50,Better than nothing (leather)
-Uncommon Helmet,head,2,100,Heavy but effective (iron)
-Uncommon Chest,chest,2,100,Heavy but effective (iron)
-Uncommon Gloves,hands,2,100,Heavy but effective (iron)
-Uncommon Boots,feet,2,100,Heavy but effective (iron)
-Uncommon Helmet,head,2,100,Heavy but effective (iron)
-Uncommon Chest,chest,2,100,Heavy but effective (iron)
-Uncommon Gloves,hands,2,100,Heavy but effective (iron)
-Uncommon Boots,feet,2,100,Heavy but effective (iron)
-Rare Helmet,head,3,250,Shiny and sturdy (steel)
-Rare Chest,chest,3,250,Shiny and sturdy (steel)
-Rare Gloves,hands,3,250,Shiny and sturdy (steel)
-Rare Boots,feet,3,250,Shiny and sturdy (steel)
+# name, equip location, attack value, cost, special properties, drop chance weight
+Basic Helmet,head,1,50,Better than nothing (leather), 50
+Basic Chest,chest,1,50,Better than nothing (leather), 50
+Basic Gloves,hands,1,50,Better than nothing (leather), 50
+Basic Boots,feet,1,50,Better than nothing (leather), 50
+Uncommon Helmet,head,2,100,Heavy but effective (iron), 25
+Uncommon Chest,chest,2,100,Heavy but effective (iron), 25
+Uncommon Gloves,hands,2,100,Heavy but effective (iron), 25
+Uncommon Boots,feet,2,100,Heavy but effective (iron), 25
+Rare Helmet,head,3,250,Shiny and sturdy (steel), 10
+Rare Chest,chest,3,250,Shiny and sturdy (steel), 10
+Rare Gloves,hands,3,250,Shiny and sturdy (steel), 10
+Rare Boots,feet,3,250,Shiny and sturdy (steel), 10

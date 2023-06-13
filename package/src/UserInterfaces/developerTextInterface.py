@@ -85,11 +85,11 @@ def MainConsole(player, lootTable):
         # Equip Test Cards
         elif userChoice == 9:
             print("Equipping a predetermined set of cards.")
-            card1 = item.Item("Basic Helmet","head",1,50,"Better than nothing (leather)")
-            card2 = item.Item("Basic Chest","chest",1,50,"Better than nothing (leather)")
-            card3 = item.Item("Basic Gloves","hands",1,50,"Better than nothing (leather)")
-            card4 = item.Item("Basic Boots","feet",1,50,"Better than nothing (leather)")
-            card5 = weapon.Weapon("Iron Claymore","2 hand",2,200,"Clunky but effective")
+            card1 = item.Item("Basic Helmet","head",1,50,"Better than nothing (leather)",50)
+            card2 = item.Item("Basic Chest","chest",1,50,"Better than nothing (leather)",50)
+            card3 = item.Item("Basic Gloves","hands",1,50,"Better than nothing (leather)",50)
+            card4 = item.Item("Basic Boots","feet",1,50,"Better than nothing (leather)",50)
+            card5 = weapon.Weapon("Iron Claymore","2 hand",2,200,"Clunky but effective",25)
             player.setCardsInHand(card1)
             player.setCardsInHand(card2)
             player.setCardsInHand(card3)

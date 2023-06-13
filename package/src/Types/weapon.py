@@ -1,14 +1,13 @@
 class Weapon:
-    def __init__(self):
-        # Define all of the default attributes of the weapon
-        self.weaponName = ""
-        self.weaponType = None
-        self.weaponAttack = 0
-        self.weaponCost = 0
-        self.weaponSpecialProperties = None
 
     def __init__(
-        self, weaponName, weaponType, weaponAttack, weaponCost, weaponSpecialProperties
+        self,
+        weaponName,
+        weaponType,
+        weaponAttack,
+        weaponCost,
+        weaponSpecialProperties,
+        weaponDropChance
     ):
         # Define all of the declared attributes of the monster
         self.weaponName = str(weaponName)
@@ -16,6 +15,7 @@ class Weapon:
         self.weaponAttack = int(weaponAttack)
         self.weaponCost = int(weaponCost)
         self.weaponSpecialProperties = str(weaponSpecialProperties)
+        self.weaponDropChance = int(weaponDropChance)
 
     # Getters
     def getName(self):
@@ -32,6 +32,9 @@ class Weapon:
 
     def getType(self):
         return self.weaponType
+    
+    def getDropChance(self):
+        return self.weaponDropChance
 
     # Setters
     def setName(self, data):
@@ -48,3 +51,6 @@ class Weapon:
 
     def setType(self, data):
         self.weaponType = data
+
+    def setDropChance(self, data):
+        self.weaponDropChance = data

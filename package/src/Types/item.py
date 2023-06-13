@@ -1,11 +1,12 @@
 class Item:
-    def __init__(
+    def __init__( # initialization
         self,
         itemName,
         itemType,
         itemAttack,
         itemCost,
-        itemSpecialProperties
+        itemSpecialProperties,
+        itemDropChance
     ):
         # Define all of the declared attributes of the monster
         self.itemName = str(itemName)
@@ -13,6 +14,7 @@ class Item:
         self.itemAttack = int(itemAttack)
         self.itemCost = int(itemCost)
         self.itemSpecialProperties = str(itemSpecialProperties)
+        self.itemDropChance = int(itemDropChance)
 
     # Getters
     def getName(self):
@@ -29,6 +31,9 @@ class Item:
 
     def getType(self):
         return self.itemType
+    
+    def getDropChance(self):
+        return self.itemDropChance
 
     # Setters
     def setName(self, data):
@@ -45,3 +50,6 @@ class Item:
 
     def setType(self, data):
         self.itemType = data
+
+    def setDropChance(self, data):
+        self.itemDropChance = data

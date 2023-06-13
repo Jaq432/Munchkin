@@ -35,8 +35,8 @@ def initialize():
 
         else:
             line = line.split(",")
-            # itemName,itemType,itemAttack,itemCost,itemSpecialProperties
-            newItem = item.Item(line[0], line[1], line[2], line[3], line[4])
+            # itemName,itemType,itemAttack,itemCost,itemSpecialProperties,lootDropChance
+            newItem = item.Item(line[0], line[1], line[2], line[3], line[4], line[5])
             itemsTable.append(newItem)
 
     for line in weaponsFile:
@@ -45,8 +45,8 @@ def initialize():
 
         else:
             line = line.split(",")
-            # weaponName,weaponType,weaponAttack,weaponCost,weaponSpecialProperties
-            newWeapon = weapon.Weapon(line[0], line[1], line[2], line[3], line[4])
+            # weaponName,weaponType,weaponAttack,weaponCost,weaponSpecialProperties,lootDropChance
+            newWeapon = weapon.Weapon(line[0], line[1], line[2], line[3], line[4], line[5])
             weaponsTable.append(newWeapon)
 
     for line in monstersFile:

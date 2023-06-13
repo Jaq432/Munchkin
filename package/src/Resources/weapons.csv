@@ -1,41 +1,12 @@
-# name, equip location, attack value, cost, special properties
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Shortsword,1 hand,1,50,Better than nothing
-Wood Claymore,2 hand,1,100,Better than nothing
-Wood Claymore,2 hand,1,100,Better than nothing
-Wood Claymore,2 hand,1,100,Better than nothing
-Wood Claymore,2 hand,1,100,Better than nothing
-Wood Claymore,2 hand,1,100,Better than nothing
-Wood Bow,bow,2,150,Seems good enough to hunt with
-Wood Bow,bow,2,150,Seems good enough to hunt with
-Wood Bow,bow,2,150,Seems good enough to hunt with
-Wood Bow,bow,2,150,Seems good enough to hunt with
-Iron Shortsword,1 hand,2,100,Heavy but gets the job done
-Iron Shortsword,1 hand,2,100,Heavy but gets the job done
-Iron Shortsword,1 hand,2,100,Heavy but gets the job done
-Iron Shortsword,1 hand,2,100,Heavy but gets the job done
-Iron Claymore,2 hand,2,200,Clunky but effective
-Iron Claymore,2 hand,2,200,Clunky but effective
-Iron Claymore,2 hand,2,200,Clunky but effective
-Iron Claymore,2 hand,2,200,Clunky but effective
-Iron Bow,bow,2,150,Probably military issue
-Iron Bow,bow,2,150,Probably military issue
-Iron Bow,bow,2,150,Probably military issue
-Iron Bow,bow,2,150,Probably military issue
-Steel Shortsword,1 hand,2,250,A true adventurer's weapon
-Steel Shortsword,1 hand,2,250,A true adventurer's weapon
-Steel Shortsword,1 hand,2,250,A true adventurer's weapon
-Steel Claymore,2 hand,3,400,Excellent craftmanship brought this to life
-Steel Claymore,2 hand,3,400,Excellent craftmanship brought this to life
-Steel Bow,bow,3,350,Incredible piece of work
-Steel Bow,bow,3,350,Incredible piece of work
-Orcish Shortsword,1 hand,3,500,Forged specifically for orcs so you should consider yourself lucky to find one
-Orcish Bow,bow,3,500,Forged specifically for orcs you should consider yourself lucky to find one
+# name, equip location, attack value, cost, special properties, loot chance
+Wood Shortsword,1 hand,1,50,Better than nothing,50
+Wood Claymore,2 hand,1,100,Better than nothing,50
+Wood Bow,bow,2,150,Seems good enough to hunt with,50
+Iron Shortsword,1 hand,2,100,Heavy but gets the job done,25
+Iron Claymore,2 hand,2,200,Clunky but effective,25
+Iron Bow,bow,2,150,Probably military issue,25
+Steel Shortsword,1 hand,2,250,A true adventurer's weapon,15
+Steel Claymore,2 hand,3,400,Excellent craftmanship brought this to life,15
+Steel Bow,bow,3,350,Incredible piece of work,15
+Orcish Shortsword,1 hand,3,500,Forged specifically for orcs so you should consider yourself lucky to find one,5
+Orcish Bow,bow,3,500,Forged specifically for orcs you should consider yourself lucky to find one,5
