@@ -21,7 +21,7 @@ def kickInDoor(player, lootTable):
         dummyMonster = monster.Monster(
             "DoorMonster", "chest", 0, "Kick in door loot dummy", 0, 1
         )
-        lootTheRoom(player, dummyMonster, lootTable)  # This is where I left off.
+        lootTheRoom(player, dummyMonster, lootTable)
     # Encounter a monster
     else:
         # Get the number of lines in the monsters data file
@@ -77,45 +77,25 @@ def kickInDoor(player, lootTable):
                 break
             # Increment to look at the next line
             lineCount += 1
-'''
-dropTable = {
-    'Leather Item': 50, #50% chance
-    'Iron Item': 25, #25% chance
-    'Steel Item': 10 #10% chance
-}
 
-# Function to perform weighted random selection
-def weighted_random_selection(drop_table):
-    total_weight = sum(drop_table.values())
-    rand_num = random.uniform(0, total_weight)
-    current_weight = 0
 
-    for item, weight in drop_table.items():
-        current_weight += weight
-        if rand_num <= current_weight:
-            return item
-
-# Example usage
-for _ in range(10):
-    dropped_item = weighted_random_selection(drop_table)
-    print("Dropped item:", dropped_item)
-'''
 def lootTheRoom(player, monster, lootTable):
-    # Get the total value of weighted drop chance = 340 as of writing
+    # Get the total value of weighted drop chance = 500+ as of writing
     totalDropChanceWeight = 0
     for item in lootTable:
         totalDropChanceWeight += item.getDropChance()
 
+    # Get x number of loot based on the monster
     for i in range(monster.getLootGain()):
         # This reperesents the index of the random item that we will loot
         randomSelector = random.randint(0, totalDropChanceWeight)
-        index = 0
+        weightedSum = 0
         for item in lootTable:
-            if index == randomSelector:
-                player.setCardsInHand(lootTable[randomSelector])
-                print("The hero looted: " + str(lootTable[randomSelector].getName()))
-                index += 1
-                continue
+            weightedSum += item.getDropChance()
+            if weightedSum >= randomSelector:
+                player.setCardsInHand(item)
+                print("The hero looted: " + str(item.getName()))
+                break
 
 
 def fight(player, monster):
