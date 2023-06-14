@@ -51,7 +51,7 @@ def MainConsole(player, lootTable):
 
         # Equip an item from hand
         elif userChoice == 3:
-            if player.getCardsInHand() != None:
+            if player.getCardsInHand() != []:
                 print("Which card would you like to equip?")
                 cardIndex = 1
                 for card in player.getCardsInHand():

@@ -1,3 +1,5 @@
+import time
+
 import Types.item as item
 import Types.weapon as weapon
 
@@ -136,9 +138,16 @@ class Player:
 
         # Item
         elif isinstance(data, item.Item):
+            equipmentSlotToEquip = data.getType()
+            for equipment in self.getItems():
+                if equipment.getType() == equipmentSlotToEquip:
+                    print("You already have something equipped in that slot.")
+                    time.sleep(1)
+                    print("Please unequip the item in that slot before proceeding.")
+                    return
             self.personalItems.append(data)
             self.cardsInHand.remove(data)
-            
+
         else:
             print("Something went wrong with equippng the card.")
 
