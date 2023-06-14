@@ -1,13 +1,4 @@
 class Monster:
-    def __init__(self):
-        # Define all of the default attributes of the monster
-        self.monsterName = ""
-        self.monsterType = ""
-        self.monsterAttack = 0
-        self.monsterDescription = ""
-        self.monsterLevelsGain = 0
-        self.monsterLootGain = 0
-
     def __init__(
         self,
         monsterName,
@@ -16,6 +7,7 @@ class Monster:
         monsterDescription,
         monsterLevelsGain,
         monsterLootGain,
+        monsterSpawnChance,
     ):
         # Define all of the declared attributes of the monster
         self.monsterName = str(monsterName)
@@ -24,6 +16,7 @@ class Monster:
         self.monsterDescription = str(monsterDescription)
         self.monsterLevelsGain = int(monsterLevelsGain)
         self.monsterLootGain = int(monsterLootGain)
+        self.monsterSpawnChance = int(monsterSpawnChance)
 
     # Getters
     def getName(self):
@@ -43,6 +36,9 @@ class Monster:
 
     def getLootGain(self):
         return self.monsterLootGain
+    
+    def getSpawnChance(self):
+        return self.monsterSpawnChance
 
     # Setters
     def setName(self, data):
@@ -62,3 +58,6 @@ class Monster:
 
     def setLootGain(self, data):
         self.monsterLootGain = data
+
+    def setSpawnChance(self, data):
+        self.monsterSpawnChance = data

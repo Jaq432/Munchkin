@@ -55,8 +55,8 @@ def initialize():
 
         else:
             line = line.split(",")
-            # monsterName,monsterType,monsterAttack,monsterDescription,monsterLevelsGain,monsterLootGain
-            newMonster = monster.Monster(line[0], line[1], line[2], line[3], line[4], line[5])
+            # monsterName,monsterType,monsterAttack,monsterDescription,monsterLevelsGain,monsterLootGain,monsterSpawnChance
+            newMonster = monster.Monster(line[0], line[1], line[2], line[3], line[4], line[5], line[6])
             monstersTable.append(newMonster)
 
     # Clean up our tracks

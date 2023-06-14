@@ -59,7 +59,7 @@ class Player:
             return []
 
     def getAttack(self):
-        attackSum = self.attack
+        attackSum = 0
 
         # We need to account for dual wielding
         if self.personalWeapon != None:
@@ -69,6 +69,8 @@ class Player:
         if self.personalItems != None:
             for item in self.personalItems:
                 attackSum += item.getAttack()
+
+        attackSum += self.personalLevel
 
         return attackSum
 
@@ -85,6 +87,9 @@ class Player:
     def setLevel(self, data):
         # based on the characteristics of the monster
         self.personalLevel = data
+        # Make sure we can't be below level 1
+        if self.personalLevel < 1:
+            self.personalLevel = 1
 
     def setRace(self, data):
         # The game might be able to have dual-race

@@ -15,7 +15,7 @@ def main():
     time.sleep(1)
 
     # Initialize our tables
-    itemsTable, weaponsTable, monstersTable = initialize.initialize()
+    itemsTable, weaponsTable, monsterTable = initialize.initialize()
 
     # Capture the number of players
     numberOfPlayers = int(input("How many players would like to play? "))
@@ -40,7 +40,7 @@ def main():
 
             # userResponse will be True if the current player is >= level 20, signifying a win
             userResponse = mainTextInterface.MainConsole(
-                arrayOfPlayers[playerArrayNum], lootTable
+                arrayOfPlayers[playerArrayNum], monsterTable, lootTable
             )
 
             if userResponse:

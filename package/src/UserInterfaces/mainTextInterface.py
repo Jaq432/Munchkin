@@ -6,7 +6,7 @@ import moves as moves
 import UserInterfaces.developerTextInterface as developerTextInterface
 
 
-def MainConsole(player, lootTable):
+def MainConsole(player, monsterTable, lootTable):
     nextPlayerTurn = False
     doorHasBeenKickedIn = False
     while nextPlayerTurn == False:
@@ -31,7 +31,7 @@ def MainConsole(player, lootTable):
             # Kick in the door
             # Looting the room also happens from that method
             doorHasBeenKickedIn = True
-            moves.kickInDoor(player, lootTable)
+            moves.kickInDoor(player, monsterTable, lootTable)
             print("")
 
         elif userChoice == 1 and doorHasBeenKickedIn == True:

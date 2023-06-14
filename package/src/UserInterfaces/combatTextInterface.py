@@ -92,8 +92,12 @@ def MainConsole(player, monster, lootTable):
         elif userChoice == 4:
             print("4")
 
+        # Run from the fight and lose levels based on the monster
         elif userChoice == 5:
-            print("5")
+            # Adjust the character's level
+            player.setLevel(player.getLevel() - monster.getLevelsGain())
+            print("Your character is now level " + str(player.getLevel()))
+            nextPlayerTurn = True
 
         elif userChoice == 6:
             if player.getLevel() >= 20:

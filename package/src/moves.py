@@ -10,7 +10,7 @@ import UserInterfaces.combatTextInterface as combatTextInterface
 
 # The main function of the game
 # We want to kick in the door, roll odds and either proceed with a monster or loot encounter
-def kickInDoor(player, lootTable):
+def kickInDoor(player, monsterTable, lootTable):
     print("Kicking in the door.")
     # May the odds be in your favor
     decidingValue = random.randint(1, 10)
@@ -19,65 +19,25 @@ def kickInDoor(player, lootTable):
         time.sleep(1)
         # Create a dummy monster to pass in which has a loot value of 1 and level gain of 0
         dummyMonster = monster.Monster(
-            "DoorMonster", "chest", 0, "Kick in door loot dummy", 0, 1
+            "DoorMonster", "chest", 0, "Kick in door loot dummy", 0, 1,1
         )
         lootTheRoom(player, dummyMonster, lootTable)
     # Encounter a monster
     else:
-        # Get the number of lines in the monsters data file
-        # Get the working directory
-        dirname = os.path.dirname(__file__)
-
-        # The value of "nt" is for windows which references files differently
-        if str(os.name) == "nt":
-            monsterDirectory = dirname + "\\Resources\\monsters.csv"
-
-        else:
-            monsterDirectory = dirname + "/Resources/monsters.csv"
-
-        monsterFile = open(monsterDirectory, "r")
-
-        # Get a count of the lines in the file representing monsters
-        numOfMonsterLines = 0
-        for monsterLine in monsterFile:
-            numOfMonsterLines += 1
-
-        # Closing the file so that I can reopen it later
-        monsterFile.close()
+        # Get a total count of the possible spawn rate
+        totalSpawnChanceWeight = 0
+        for monster in monsterTable:
+            totalSpawnChanceWeight += monster.getSpawnChance()
 
         # Choose a random monster number to get
-        monsterValue = random.randint(1, numOfMonsterLines)
+        monsterValue = random.randint(0, totalSpawnChanceWeight)
 
-        # Reopening the monster file
-        monsterFile = open(monsterDirectory, "r")
-
-        lineCount = 0
-        for monsterLine in monsterFile:
-            # Found the monster we are looking for
-            if lineCount == monsterValue:
-                monsterAttributes = monsterLine.split(",")
-                # Do the fight and pass in the monster
-                doorMonster = monster.Monster(
-                    monsterAttributes[0],
-                    monsterAttributes[1],
-                    monsterAttributes[2],
-                    monsterAttributes[3],
-                    monsterAttributes[4],
-                    monsterAttributes[5],
-                )
-                print("You encountered a " + str(doorMonster.getName()) + "!")
-                combatTextInterface.MainConsole(player, doorMonster, lootTable)
-                break
-            # Didn't find the monster we are looking for
-            if lineCount == numOfMonsterLines:
-                print(
-                    "We reached the end of the monster file without finding the assigned monster. \
-                        Something went wrong."
-                )
-                break
-            # Increment to look at the next line
-            lineCount += 1
-
+        weightedSum = 0
+        for monster in monsterTable:
+            weightedSum += monster.getSpawnChance()
+            if weightedSum >= monsterValue:
+                print("You encountered a " + str(monster.getName()))
+                combatTextInterface.MainConsole(player, monster, lootTable)
 
 def lootTheRoom(player, monster, lootTable):
     # Get the total value of weighted drop chance = 500+ as of writing
@@ -108,11 +68,6 @@ def fight(player, monster):
         print(
             "Either equip items to make yourself stronger, ask for assistance, or run."
         )
-
-
-def run(player, monster):
-    print("Running from the monster. Losing a level.")
-    player.setLeve(player.getLevel() - 1)
 
 
 def equipWeapon(player, weapon):
