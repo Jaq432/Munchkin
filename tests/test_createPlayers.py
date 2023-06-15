@@ -2,9 +2,9 @@
 # I'm having issues with this:
 # from src.package import createPlayers
 # ModuleNotFoundError: No module named 'src'
-from src.Types import player
-from src.Types import weapon
-from src.Types import item
+import package.src.Types.player as player
+import package.src.Types.weapon as weapon
+import package.src.Types.item as item
 
 def test_createPlayers():
     testWeapon = weapon.Weapon("Iron Claymore","2 hand",2,200,"Clunky but effective",25)
