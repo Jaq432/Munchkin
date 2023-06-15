@@ -54,7 +54,7 @@ class Player:
         return self.personalWeapon
     
     def getItems(self):
-        if self.personalItems != None:
+        if self.personalItems != []:
             return self.personalItems
         else:
             return []
@@ -105,14 +105,14 @@ class Player:
     def setWeapon(self, data):
         # The game has regulations around weapon equipment
         if (self.personalClass == "barbarian") and (len(self.getWeapons()) < 2):
-            self.personalWeapon = data
+            self.personalWeapon = [data]
         elif len(self.getWeapons()) != 1:
-            self.personalWeapon = data
+            self.personalWeapon = [data]
         else:
             print("Prompt to remove the weapon.")
 
     def setItems(self, data):
-        self.personalItems = data
+        self.personalItems = [data]
 
     def setCardsInHand(self, data):
         self.cardsInHand.append(data)
