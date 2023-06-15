@@ -1,7 +1,7 @@
 import time
 
-import item as item
-import weapon as weapon
+import package.src.Types.item as item
+import package.src.Types.weapon as weapon
 
 class Player:
     def __init__(
