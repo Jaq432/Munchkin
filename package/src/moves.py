@@ -38,6 +38,7 @@ def kickInDoor(player, monsterTable, lootTable):
             if weightedSum >= monsterValue:
                 print("You encountered a " + str(monster.getName()))
                 combatTextInterface.MainConsole(player, monster, lootTable)
+                break
 
 def lootTheRoom(player, monster, lootTable):
     # Get the total value of weighted drop chance = 500+ as of writing

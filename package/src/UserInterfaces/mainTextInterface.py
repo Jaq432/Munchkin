@@ -79,7 +79,25 @@ def MainConsole(player, monsterTable, lootTable):
 
         # Sell items for levels
         elif userChoice == 4:
-            print("4")
+
+            #Cards in hand.
+            itemIndex = 1
+            print("This is a list of the items in your hand:")
+            for card in player.getCardsInHand():
+                print(str(itemIndex) + ". " + str(card.getName()) + ": " + str(card.getCost()) + "g")
+                itemIndex += 1
+            print("")
+
+            #Equipped items.
+            print("This is a list of your equipped items:")
+            for equippedWeapon in player.getWeapons():
+                print(str(itemIndex) + ". " + str(equippedWeapon.getName()) + ": " + str(equippedWeapon.getCost()) + "g")
+                itemIndex += 1
+            for equippedItem in player.getItems():
+                print(str(itemIndex) + ". " + str(equippedItem.getName()) + ": " + str(equippedItem.getCost()) + "g")
+                itemIndex += 1
+            print("")
+            time.sleep(1)
 
         elif userChoice == 5:
             if player.getLevel() >= 20:
