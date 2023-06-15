@@ -24,11 +24,6 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
             arrayOfPlayers.append(newPlayer)
         # Spacing for interface
         print("")
-    # TODO: Used for testing
-    else:
-        arrayOfPlayers.append(player.Player(testPlayer1))
-        arrayOfPlayers.append(player.Player(testPlayer2))
-        return 1
 
     # Return the player array for use in the game
     return arrayOfPlayers

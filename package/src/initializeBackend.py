@@ -34,9 +34,24 @@ def initialize():
             continue
 
         else:
+            # Pull out and scrub each field
             line = line.split(",")
-            # itemName,itemType,itemAttack,itemCost,itemSpecialProperties,lootDropChance
-            newItem = item.Item(line[0], line[1], line[2], line[3], line[4], line[5])
+            itemName = str(line[0])
+            itemType = str(line[1])
+            itemAttack = int(line[2])
+            itemCost = int(line[3])
+            itemSpecialProperties = str(line[4])
+            itemDropChance = int(line[5])
+
+            # Create and add it to the table
+            newItem = item.Item(
+                itemName,
+                itemType,
+                itemAttack,
+                itemCost,
+                itemSpecialProperties,
+                itemDropChance,
+            )
             itemsTable.append(newItem)
 
     for line in weaponsFile:
@@ -44,9 +59,24 @@ def initialize():
             continue
 
         else:
+            # Pull out and scrub each field
             line = line.split(",")
-            # weaponName,weaponType,weaponAttack,weaponCost,weaponSpecialProperties,lootDropChance
-            newWeapon = weapon.Weapon(line[0], line[1], line[2], line[3], line[4], line[5])
+            weaponName = str(line[0])
+            weaponType = str(line[1])
+            weaponAttack = int(line[2])
+            weaponCost = int(line[3])
+            weaponSpecialProperties = str(line[4])
+            weaponDropChance = int(line[5])
+
+            # Create and add it to the table
+            newWeapon = weapon.Weapon(
+                weaponName,
+                weaponType,
+                weaponAttack,
+                weaponCost,
+                weaponSpecialProperties,
+                weaponDropChance,
+            )
             weaponsTable.append(newWeapon)
 
     for line in monstersFile:
@@ -54,9 +84,26 @@ def initialize():
             continue
 
         else:
+            # Pull out and scrub each field
             line = line.split(",")
-            # monsterName,monsterType,monsterAttack,monsterDescription,monsterLevelsGain,monsterLootGain,monsterSpawnChance
-            newMonster = monster.Monster(line[0], line[1], line[2], line[3], line[4], line[5], line[6])
+            monsterName = str(line[0])
+            monsterType = str(line[1])
+            monsterAttack = int(line[2])
+            monsterDescription = str(line[3])
+            monsterLevelsGain = int(line[4])
+            monsterLootGain = int(line[5])
+            monsterSpawnChance = int(line[6])
+
+            # Create and add it to the table
+            newMonster = monster.Monster(
+                monsterName,
+                monsterType,
+                monsterAttack,
+                monsterDescription,
+                monsterLevelsGain,
+                monsterLootGain,
+                monsterSpawnChance,
+            )
             monstersTable.append(newMonster)
 
     # Clean up our tracks

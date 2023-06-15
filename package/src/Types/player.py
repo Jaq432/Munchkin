@@ -4,25 +4,26 @@ import Types.item as item
 import Types.weapon as weapon
 
 class Player:
-    def __init__(self,
-        name,
-        level,
-        race,
-        personalClass,
-        weapon,
-        items,
-        attack,
-        cardsInHand
+    def __init__(
+        self,
+        personName: str,
+        personLevel: int,
+        personRace: list,
+        personPersonalClass: list,
+        personWeapon: list,
+        personItems: list,
+        personAttack: int,
+        personCardsInHand: list,
     ):
         # Define all of the default attributes of the player
-        self.personalName = name
-        self.personalLevel = level
-        self.personalRace = race
-        self.personalClass = personalClass
-        self.personalWeapon = weapon
-        self.personalItems = items
-        self.attack = attack
-        self.cardsInHand = cardsInHand
+        self.personalName = personName
+        self.personalLevel = personLevel
+        self.personalRace = personRace
+        self.personalClass = personPersonalClass
+        self.personalWeapon = personWeapon
+        self.personalItems = personItems
+        self.attack = personAttack
+        self.cardsInHand = personCardsInHand
 
         # This is here for testing
         if False:

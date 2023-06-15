@@ -1,12 +1,12 @@
 class Item:
     def __init__( # initialization
         self,
-        itemName,
-        itemType,
-        itemAttack,
-        itemCost,
-        itemSpecialProperties,
-        itemDropChance
+        itemName: str,
+        itemType: str,
+        itemAttack: int,
+        itemCost: int,
+        itemSpecialProperties: str,
+        itemDropChance: int,
     ):
         # Define all of the declared attributes of the monster
         self.itemName = str(itemName)
