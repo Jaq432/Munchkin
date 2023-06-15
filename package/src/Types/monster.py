@@ -1,13 +1,13 @@
 class Monster:
     def __init__(
         self,
-        monsterName,
-        monsterType,
-        monsterAttack,
-        monsterDescription,
-        monsterLevelsGain,
-        monsterLootGain,
-        monsterSpawnChance,
+        monsterName: str,
+        monsterType: str,
+        monsterAttack: int,
+        monsterDescription: str,
+        monsterLevelsGain: int,
+        monsterLootGain: int,
+        monsterSpawnChance: int,
     ):
         # Define all of the declared attributes of the monster
         self.monsterName = str(monsterName)
