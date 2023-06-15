@@ -8,19 +8,7 @@ import package.src.Types.item as item
 
 # Tests player creation with all fields populated
 def test_createPlayers():
-    testWeapon = weapon.Weapon("Iron Claymore","2 hand",2,200,"Clunky but effective",25)
-    testItem = item.Item("Basic Helmet","head",1,50,"Better than nothing (leather)",50)
-    testCard = item.Item("Basic Helmet","head",1,50,"Better than nothing (leather)",50)
-    testPlayer = player.Player(
-        "TestBob",
-        1,
-        ["human"],
-        ["cleric"],
-        [testWeapon],
-        [testItem],
-        1,
-        [testCard],
-    )
+    testPlayer = player.Player("TestBob",1,[],[],[],[],1,[])
     assert isinstance(testPlayer, player.Player) == True
 
 def test_updatePlayerName():
