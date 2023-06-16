@@ -1,10 +1,6 @@
-# Here is testing for the createPlayers.py file
-# I'm having issues with this:
-# from src.package import createPlayers
-# ModuleNotFoundError: No module named 'src'
-import package.src.Types.player as player
-import package.src.Types.weapon as weapon
-import package.src.Types.item as item
+import src.Types.player as player
+import src.Types.weapon as weapon
+import src.Types.item as item
 
 # Tests player creation with all fields populated
 def test_createPlayers():
