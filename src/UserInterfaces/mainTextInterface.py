@@ -78,26 +78,59 @@ def MainConsole(player, monsterTable, lootTable):
                 time.sleep(1)
 
         # Sell items for levels
+        # This is quickly turning into madness
         elif userChoice == 4:
 
-            #Cards in hand.
-            itemIndex = 1
-            print("This is a list of the items in your hand:")
-            for card in player.getCardsInHand():
-                print(str(itemIndex) + ". " + str(card.getName()) + ": " + str(card.getCost()) + "g")
-                itemIndex += 1
-            print("")
+            continue
 
-            #Equipped items.
-            print("This is a list of your equipped items:")
+            mergedItemList = []
+            lengthOfEquippedItems = 0
+
+            # Get our equipped cards
             for equippedWeapon in player.getWeapons():
-                print(str(itemIndex) + ". " + str(equippedWeapon.getName()) + ": " + str(equippedWeapon.getCost()) + "g")
-                itemIndex += 1
+                mergedItemList.append(equippedWeapon)
             for equippedItem in player.getItems():
-                print(str(itemIndex) + ". " + str(equippedItem.getName()) + ": " + str(equippedItem.getCost()) + "g")
-                itemIndex += 1
-            print("")
-            time.sleep(1)
+                mergedItemList.append(equippedItem)
+            
+            # Get the list of equipped cards
+            lengthOfEquippedItems = len(mergedItemList) + 1
+
+            # Get the remaining cards in our hand
+            for notEquippedCard in player.getCardsInHand():
+                mergedItemList.append(notEquippedCard)
+            
+            # Make a list of indexes that we will be selling
+            listOfCardIndexesToSell = []
+
+            doneWithSellingCards = False
+            while not doneWithSellingCards:
+                # List out all of the cards that we are going to sell
+                print("This is a list of the cards that you can sell:")
+                index = 1
+                for card in mergedItemList:
+                    # If the card is equipped 
+                    if index <= lengthOfEquippedItems:
+                        print(str(index) + ": Equipped :" + str(card.getName()))
+                    # If the card is in our hand
+                    else:
+                        print(str(index) + ": In Hand :" + str(card.getName()))
+                    index += 1
+                time.sleep(1)
+
+                # Ask what card they want to sell 
+                chosenCardIndex = input("Please select a number for the card that you want to sell: ")
+
+                listOfCardIndexesToSell = []
+
+                # Set the index back to 1 so we can get the right card
+                itemIndex = 1
+
+                # Make a location to hold the cards we are thinking about selling
+                
+
+
+
+
 
         elif userChoice == 5:
             if player.getLevel() >= 20:
