@@ -2,7 +2,6 @@ import src.Types.player as player
 import src.Types.weapon as weapon
 import src.Types.item as item
 
-# Tests player creation with all fields populated
 def test_createPlayers():
     testPlayer = player.Player("TestBob",1,[],[],[],[],1,[])
     assert isinstance(testPlayer, player.Player) == True
