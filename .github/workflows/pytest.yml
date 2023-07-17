@@ -26,4 +26,4 @@ jobs:
           pip install -e .
 
       - name: Run CI Testing with Pytest
-        run: python -m pytest -v
+        run: python -m pytest
