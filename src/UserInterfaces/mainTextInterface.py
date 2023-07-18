@@ -81,6 +81,11 @@ def MainConsole(player, monsterTable, lootTable):
         # This is quickly turning into madness
         elif userChoice == 4:
 
+            # TODO
+            # This is the plan: 
+            # 1. Print off all available items/cards w/ values
+            # 2. Take user input
+
             continue
 
             mergedItemList = []
