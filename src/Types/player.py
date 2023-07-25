@@ -15,6 +15,7 @@ class Player:
         personItems: list,
         personAttack: int,
         personCardsInHand: list,
+        personalGold: int,
     ):
         # Define all of the default attributes of the player
         self.personalName = personName
@@ -25,6 +26,7 @@ class Player:
         self.personalItems = personItems
         self.attack = personAttack
         self.cardsInHand = personCardsInHand
+        self.personalGold = personalGold
 
         # This is here for testing
         if False:
@@ -37,6 +39,7 @@ class Player:
             print("Items: " + str(items))
             print("Attack: " + str(attack))
             print("Cards in hand: " + str(cardsInHand))
+            print("Gold: " + str(personalGold))
 
     # Getters
     def getName(self):
@@ -81,6 +84,10 @@ class Player:
             return self.cardsInHand
         else:
             return []
+        
+    def getGold(self):
+        return self.personalGold
+
 
     # Setters
     def setName(self, data):
@@ -117,6 +124,10 @@ class Player:
 
     def setCardsInHand(self, data):
         self.cardsInHand.append(data)
+
+    def setGold(self, data):
+        self.personalGold = data
+
 
     # Deleters
     def deleteItem(self, data):

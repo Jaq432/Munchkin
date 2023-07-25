@@ -86,7 +86,7 @@ def MainConsole(player, monsterTable, lootTable):
             # 1. Print off all available items/cards w/ values
             # 2. Take user input
 
-            continue
+            
 
             mergedItemList = []
             lengthOfEquippedItems = 0
