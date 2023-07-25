@@ -13,13 +13,14 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
             # Start creating the player array
             newPlayer = player.Player(
                 playerName, #  Name
-                1, #  Level
+                1,  #  Level
                 [], #  Race
                 [], #  Class
                 [], #  Weapons
                 [], #  Items
-                1, #  Attack
-                [] #  Cards in hand
+                1,  #  Attack
+                [], #  Cards in hand
+                0,  # Personal Gold
             )
             arrayOfPlayers.append(newPlayer)
         # Spacing for interface
