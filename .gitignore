@@ -1,6 +1,7 @@
 # Auto-generated files that are pycache
 *.pyc
 /.pytest_cache
+*__pycache__*
 
 # VSCode configuration
 /.vscode
