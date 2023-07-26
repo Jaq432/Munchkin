@@ -122,7 +122,7 @@ class Player:
     def setItems(self, data):
         self.personalItems = [data]
 
-    def setCardsInHand(self, data):
+    def addCardToHand(self, data):
         self.cardsInHand.append(data)
 
     def setGold(self, data):
@@ -130,11 +130,15 @@ class Player:
 
 
     # Deleters
-    def deleteItem(self, data):
+    def deleteEquippedItem(self, data):
         self.personalItems.remove(data)
 
-    def deleteWeapon(self, data):
+    def deleteEquippedWeapon(self, data):
         self.personalWeapon.remove(data)
+
+    def deleteItemInHand(self, data):
+        self.cardsInHand.remove(data)
+
 
     # Equip Card
     def equipCard(self, data):
@@ -169,6 +173,7 @@ class Player:
         else:
             print("Something went wrong with equippng the card.")
 
+
     # Unequip Card
     def unequipCard(self, data):
         # the format is <class 'int'>
@@ -178,3 +183,37 @@ class Player:
             self.personalItems.remove(data)
         else:
             print("Something went wrong with unequippng the card.")
+
+
+    # Sell Cards
+    def sellEquippedCard(self, data):
+        equippedItems = self.getWeapons() + self.getItems()
+        currentGold = self.getGold()
+        for card in equippedItems:
+            print("Checking choice vs equipped cards: " + str(data.getName()) + " " + str(card.getName()))
+            if card.getName() == data.getName():
+                print("Selling the card that's equipped.")
+                currentGold += card.getCost()
+                self.setGold(currentGold)
+                # Delete the item from our equipment
+                if isinstance(data, item.Item):
+                    self.deleteEquippedItem(data)
+                    return
+                if isinstance(data, weapon.Weapon):
+                    self.deleteEquippedWeapon(data)
+                    return
+
+    def sellHandCard(self, data):
+        handItems = self.getCardsInHand()
+        currentGold = self.getGold()
+        for card in handItems: 
+            print("Checking choice vs hand cards: " + str(data.getName()) + " " + str(card.getName()))
+            if card.getName() == data.getName():
+                print("Selling the card from your hand.")
+                currentGold += card.getCost()
+                self.setGold(currentGold)
+                # Delete the item from our hand
+                self.deleteItemInHand(data)
+                return
+
+
