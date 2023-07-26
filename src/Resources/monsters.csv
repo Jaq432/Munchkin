@@ -7,4 +7,5 @@ Bandit,humanoid,5,Looking for loot,1,2,30
 Assassin,humanoid,8,Someone must not like you,2,2,20
 Knight,humanoid,8,They were just minding their own business until you came along,2,2,20
 Mounted Knight,humanoid,10,You're in for trouble,2,3,10
+Fluffy,beast,10,Not so fluffy,2,3,10
 Dragon,dragon,12,Where's a donkey when you need one?,2,4,5

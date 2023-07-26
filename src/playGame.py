@@ -15,7 +15,7 @@ def main():
     time.sleep(1)
 
     # Initialize our tables
-    itemsTable, weaponsTable, monsterTable = initialize.initialize()
+    itemsTable, weaponsTable, monsterTable, classTable = initialize.initialize()
 
     # Capture the number of players
     numberOfPlayers = int(input("How many players would like to play? "))

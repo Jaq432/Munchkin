@@ -156,7 +156,9 @@ class Player:
                 # Remove from hand
                 self.cardsInHand.remove(data)
             else:
-                print("Prompt to unequip a weapon.")
+                print("You already have something equipped in the weapon slot.")
+                time.sleep(1)
+                print("Please unequip the item in that slot before proceeding.")
 
         # Item
         elif isinstance(data, item.Item):

@@ -179,7 +179,9 @@ def MainConsole(player, monsterTable, lootTable):
                     currentPlayerLevel = int(player.getLevel())
                     updatedUserGold = currentUserGold - 1000
                     player.setLevel(currentPlayerLevel + 1)
+                    print("Player level is now: " + str(player.getLevel()))
                     player.setGold(updatedUserGold)
+                    print("Player gold total is now: " + str(player.getGold()))
                     
                 elif userInput.lower() == 'n':
                     print("")
@@ -196,7 +198,7 @@ def MainConsole(player, monsterTable, lootTable):
             print("Entering the Developer Interface.")
             declareVictory = developerTextInterface.MainConsole(player, lootTable)
             if declareVictory:
-                return declareVictory
+                return True
 
         elif userChoice == 99:
             print("Exiting the program.")

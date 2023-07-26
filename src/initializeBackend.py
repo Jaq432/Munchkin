@@ -3,6 +3,7 @@ import os
 import Types.item as item
 import Types.weapon as weapon
 import Types.monster as monster
+import Types.classes as classes
 
 
 def initialize():
@@ -15,19 +16,23 @@ def initialize():
         itemsDirectory = dirname + "\\Resources\\items.csv"
         weaponsDirectory = dirname + "\\Resources\\weapons.csv"
         monsterDirectory = dirname + "\\Resources\\monsters.csv"
+        classesDirectory = dirname + "\\Resources\\classes.csv"
     # If not nt, it is linux/mac based and needs different a directory format
     else:
         itemsDirectory = dirname + "/Resources/items.csv"
         weaponsDirectory = dirname + "/Resources/weapons.csv"
         monsterDirectory = dirname + "/Resources/monsters.csv"
+        classesDirectory = dirname + "/Resources/classes.csv"
 
     itemsFile = open(itemsDirectory, "r")
     weaponsFile = open(weaponsDirectory, "r")
     monstersFile = open(monsterDirectory, "r")
+    classesFile = open(classesDirectory, 'r')
 
     itemsTable = []
     weaponsTable = []
     monstersTable = []
+    classesTable = []
 
     for line in itemsFile:
         if line[0] == "#":
@@ -105,6 +110,27 @@ def initialize():
                 monsterSpawnChance,
             )
             monstersTable.append(newMonster)
+
+        for line in classesFile:
+            if line[0] == "#":
+                continue
+
+            else:
+                # Pull out and scrub each field
+                line = line.split(",")
+                className = str(line[0])
+                classcost = int(line[1])
+                classSpecialProperties = str(line[2])
+                classDropChanceWeight = int(line[3])
+
+                # Create and add it to the table
+                newClass = classes.Class(
+                    className,
+                    classcost,
+                    classSpecialProperties,
+                    classDropChanceWeight,
+                )
+                classesTable.append(newMonster)
 
     # Clean up our tracks
     itemsFile.close()

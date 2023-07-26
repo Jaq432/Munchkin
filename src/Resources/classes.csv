@@ -1,0 +1,5 @@
+# name, cost, special properties, drop chance weight
+barbarian,250,dual wield,10
+rogue,250,gain 25g per turn,10
+mage,250,+2 damage for spells,10
+archer,250,+3 damage against beasts,10
