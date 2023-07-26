@@ -163,7 +163,7 @@ class Player:
             equipmentSlotToEquip = data.getType()
             for equipment in self.getItems():
                 if equipment.getType() == equipmentSlotToEquip:
-                    print("You already have something equipped in that slot.")
+                    print("You already have something equipped in the " + str(equipmentSlotToEquip) + " slot.")
                     time.sleep(1)
                     print("Please unequip the item in that slot before proceeding.")
                     return

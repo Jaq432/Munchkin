@@ -1,4 +1,4 @@
-222992# This is the game Munchkins in a text-based format
+# This is the game Munchkins in a text-based format
 
 # public imports
 import time

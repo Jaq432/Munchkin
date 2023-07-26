@@ -54,7 +54,7 @@ def lootTheRoom(player, monster, lootTable):
         for item in lootTable:
             weightedSum += item.getDropChance()
             if weightedSum >= randomSelector:
-                player.setCardsInHand(item)
+                player.addCardToHand(item)
                 print("The hero looted: " + str(item.getName()))
                 break
 
@@ -80,4 +80,4 @@ def equipItem(player, item):
 
 
 def unequipWeapon(player, weapon):
-    player.deleteWeapon(weapon)
+    player.deleteEquippedWeapon(weapon)
