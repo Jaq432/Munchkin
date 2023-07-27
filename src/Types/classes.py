@@ -2,52 +2,39 @@ class Class:
     def __init__( # initialization
         self,
         className: str,
-        classcost: int,
+        classCost: int,
         classSpecialProperties: str,
         classDropChanceWeight: int,
     ):
         # Define all of the declared attributes of the monster
-        self.itemName = str(itemName)
-        self.itemType = str(itemType)
-        self.itemAttack = int(itemAttack)
-        self.itemCost = int(itemCost)
-        self.itemSpecialProperties = str(itemSpecialProperties)
-        self.itemDropChance = int(itemDropChance)
+        self.className = str(className)
+        self.classCost = str(classCost)
+        self.classSpecialProperties = int(classSpecialProperties)
+        self.classDropChanceWeight = int(classDropChanceWeight)
 
     # Getters
     def getName(self):
-        return self.itemName
-
-    def getAttack(self):
-        return self.itemAttack
+        return self.className
 
     def getCost(self):
-        return self.itemCost
+        return self.classCost
 
     def getSpecialProperties(self):
-        return self.itemSpecialProperties
+        return self.classSpecialProperties
 
-    def getType(self):
-        return self.itemType
-    
     def getDropChance(self):
-        return self.itemDropChance
+        return self.classDropChanceWeight
+    
 
     # Setters
     def setName(self, data):
-        self.itemName = data
-
-    def setAttack(self, data):
-        self.itemAttack = data
+        self.className = data
 
     def setCost(self, data):
-        self.itemCost = data
+        self.classCost = data
 
     def setSpecialProperties(self, data):
-        self.itemSpecialProperties = data
-
-    def setType(self, data):
-        self.itemType = data
+        self.classSpecialProperties = data
 
     def setDropChance(self, data):
-        self.itemDropChance = data
+        self.classDropChanceWeight = data
