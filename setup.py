@@ -9,8 +9,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     install_requires=[
         # List your project dependencies here
-        "pytest==7.3.1",
-        "python==3.8.2"
+        "pytest==7.3.1"
     ],
     classifiers=[
         "Development Status :: 2 - Beta",
