@@ -8,8 +8,8 @@ class Class:
     ):
         # Define all of the declared attributes of the monster
         self.className = str(className)
-        self.classCost = str(classCost)
-        self.classSpecialProperties = int(classSpecialProperties)
+        self.classCost = int(classCost)
+        self.classSpecialProperties = str(classSpecialProperties)
         self.classDropChanceWeight = int(classDropChanceWeight)
 
     # Getters

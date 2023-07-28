@@ -10,7 +10,7 @@ class Player:
         personName: str,
         personLevel: int,
         personRace: list,
-        personPersonalClass: list,
+        personClass: list,
         personWeapon: list,
         personItems: list,
         personAttack: int,
@@ -21,7 +21,7 @@ class Player:
         self.personalName = personName
         self.personalLevel = personLevel
         self.personalRace = personRace
-        self.personalClass = personPersonalClass
+        self.personalClass = personClass
         self.personalWeapon = personWeapon
         self.personalItems = personItems
         self.attack = personAttack
@@ -105,14 +105,16 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data):
-        if self.personalClass == "barbarian" and (len(self.getWeapons()) < 2):
-            print("Prompt to remove one of the weapons.")
-        # The game might be able to have dual-class
+        print("Class " + str(self.getClass().getName()))
+        if self.getClass().getName() == "barbarian" and (len(self.getWeapons()) >= 2):
+            print("Prompt to remove one of the weapons before proceeding.")
+            self.personalClass = data
+            return
         self.personalClass = data
 
     def setWeapon(self, data):
         # The game has regulations around weapon equipment
-        if (self.personalClass == "barbarian") and (len(self.getWeapons()) < 2):
+        if (self.personalClass.getName() == "barbarian") and (len(self.getWeapons()) < 2):
             self.personalWeapon = [data]
         elif len(self.getWeapons()) != 1:
             self.personalWeapon = [data]
@@ -150,7 +152,7 @@ class Player:
                 self.personalWeapon.append(data)
                 # Remove from hand
                 self.cardsInHand.remove(data)
-            elif len(self.getWeapons()) == 1 and self.personalClass == "barbarian":
+            elif len(self.getWeapons()) == 1 and self.personalClass.getName() == "barbarian":
                 # Equip
                 self.personalWeapon.append(data)
                 # Remove from hand
