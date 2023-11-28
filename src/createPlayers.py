@@ -6,7 +6,7 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
     arrayOfPlayers = []
 
     if testPlayer1 == "" and testPlayer2 == "":
-        for playerNum in range(numberOfPlayers):
+        for _ in range(numberOfPlayers):
             # This will need to be updated so we can create players using player.py
             playerName = input("What is the name of this player? ")
 
@@ -20,7 +20,7 @@ def playerCreation(numberOfPlayers, testPlayer1, testPlayer2):
                 [], #  Items
                 1,  #  Attack
                 [], #  Cards in hand
-                0,  # Personal Gold
+                0,  #  Personal Gold
             )
             arrayOfPlayers.append(newPlayer)
         # Spacing for interface

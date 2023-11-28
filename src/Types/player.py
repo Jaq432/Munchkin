@@ -2,6 +2,7 @@ import time
 
 import Types.item as item
 import Types.weapon as weapon
+import Types.classes as classes
 
 
 class Player:
@@ -42,28 +43,28 @@ class Player:
             print("Gold: " + str(personalGold))
 
     # Getters
-    def getName(self):
+    def getName(self) -> str:
         return self.personalName
 
-    def getLevel(self):
+    def getLevel(self) -> int:
         return self.personalLevel
 
-    def getRace(self):
+    def getRace(self) -> list:
         return self.personalRace
 
-    def getClass(self):
+    def getClass(self) -> list:
         return self.personalClass
 
-    def getWeapons(self):
+    def getWeapons(self) -> list:
         return self.personalWeapon
     
-    def getItems(self):
+    def getItems(self) -> list:
         if self.personalItems != []:
             return self.personalItems
         else:
             return []
 
-    def getAttack(self):
+    def getAttack(self) -> int:
         attackSum = 0
 
         # We need to account for dual wielding
@@ -79,32 +80,32 @@ class Player:
 
         return attackSum
 
-    def getCardsInHand(self):
+    def getCardsInHand(self) -> list:
         if self.cardsInHand != None:
             return self.cardsInHand
         else:
             return []
         
-    def getGold(self):
+    def getGold(self) -> int:
         return self.personalGold
 
 
     # Setters
-    def setName(self, data):
+    def setName(self, data) -> None:
         self.personalName = str(data)
 
-    def setLevel(self, data):
+    def setLevel(self, data) -> None:
         # based on the characteristics of the monster
         self.personalLevel = data
         # Make sure we can't be below level 1
         if self.personalLevel < 1:
             self.personalLevel = 1
 
-    def setRace(self, data):
+    def setRace(self, data) -> None:
         # The game might be able to have dual-race
         self.personalRace = data
 
-    def setClass(self, data):
+    def setClass(self, data) -> None:
         print("Class " + str(self.getClass().getName()))
         if self.getClass().getName() == "barbarian" and (len(self.getWeapons()) >= 2):
             print("Prompt to remove one of the weapons before proceeding.")
@@ -112,7 +113,7 @@ class Player:
             return
         self.personalClass = data
 
-    def setWeapon(self, data):
+    def setWeapon(self, data) -> None:
         # The game has regulations around weapon equipment
         if (self.personalClass.getName() == "barbarian") and (len(self.getWeapons()) < 2):
             self.personalWeapon = [data]
@@ -121,29 +122,29 @@ class Player:
         else:
             print("Prompt to remove the weapon.")
 
-    def setItems(self, data):
+    def setItems(self, data) -> None:
         self.personalItems = [data]
 
-    def addCardToHand(self, data):
+    def addCardToHand(self, data) -> None:
         self.cardsInHand.append(data)
 
-    def setGold(self, data):
+    def setGold(self, data) -> None:
         self.personalGold = data
 
 
     # Deleters
-    def deleteEquippedItem(self, data):
+    def deleteEquippedItem(self, data) -> None:
         self.personalItems.remove(data)
 
-    def deleteEquippedWeapon(self, data):
+    def deleteEquippedWeapon(self, data) -> None:
         self.personalWeapon.remove(data)
 
-    def deleteItemInHand(self, data):
+    def deleteItemInHand(self, data) -> None:
         self.cardsInHand.remove(data)
 
 
     # Equip Card
-    def equipCard(self, data):
+    def equipCard(self, data) -> None:
         # Weapon
         if isinstance(data, weapon.Weapon):
             # Is empty
@@ -174,12 +175,23 @@ class Player:
             self.personalItems.append(data)
             self.cardsInHand.remove(data)
 
+        # Class
+        elif isinstance(data, classes.Class):
+            for characterClass in self.getClass():
+                if equipment.getType() == equipmentSlotToEquip:
+                    print("You already have something equipped in the " + str(equipmentSlotToEquip) + " slot.")
+                    time.sleep(1)
+                    print("Please unequip the item in that slot before proceeding.")
+                    return
+            self.personalItems.append(data)
+            self.cardsInHand.remove(data)
+
         else:
             print("Something went wrong with equippng the card.")
 
 
     # Unequip Card
-    def unequipCard(self, data):
+    def unequipCard(self, data) -> None:
         # the format is <class 'int'>
         if isinstance(data, weapon.Weapon):
             self.personalWeapon.remove(data)
@@ -190,7 +202,7 @@ class Player:
 
 
     # Sell Cards
-    def sellEquippedCard(self, data):
+    def sellEquippedCard(self, data) -> None:
         equippedItems = self.getWeapons() + self.getItems()
         currentGold = self.getGold()
         for card in equippedItems:
@@ -207,7 +219,7 @@ class Player:
                     self.deleteEquippedWeapon(data)
                     return
 
-    def sellHandCard(self, data):
+    def sellHandCard(self, data) -> None:
         handItems = self.getCardsInHand()
         currentGold = self.getGold()
         for card in handItems: 
