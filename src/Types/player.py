@@ -231,5 +231,3 @@ class Player:
                 # Delete the item from our hand
                 self.deleteItemInHand(data)
                 return
-
-
