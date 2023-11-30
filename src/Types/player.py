@@ -106,7 +106,7 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data) -> None:
-        self.personalClass = data
+        self.personalClass = [data]
 
     def setWeapon(self, data) -> None:
         # The game has regulations around weapon equipment
