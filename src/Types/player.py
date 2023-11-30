@@ -196,9 +196,6 @@ class Player:
 
     # Sell Cards
     def sellEquippedCard(self, data) -> None:
-        print(self.getWeapons())
-        print(self.getItems())
-        print(self.getClass())
         equippedItems = self.getWeapons() + self.getItems() + self.getClass()
         currentGold = self.getGold()
         for card in equippedItems:
@@ -213,7 +210,6 @@ class Player:
                     self.deleteEquippedWeapon(data)
                     return
                 if isinstance(data, classes.Class):
-                    print("Deleting class")
                     self.deleteEquippedClass(data)
                     return
 
