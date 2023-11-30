@@ -202,6 +202,9 @@ class Player:
 
     # Sell Cards
     def sellEquippedCard(self, data) -> None:
+        print(self.getWeapons())
+        print(self.getItems())
+        print(self.getClass())
         equippedItems = self.getWeapons() + self.getItems() + self.getClass()
         currentGold = self.getGold()
         for card in equippedItems:
