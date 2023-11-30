@@ -25,7 +25,7 @@ def test_updatePlayerRace():
 
 def test_updatePlayerClass():
     testPlayer.setClass(testClass)
-    assert testPlayer.getClass().getName() == "Barbarian"
+    assert testPlayer.getClass()[0].getName() == "Barbarian"
 
 def test_updatePlayerWeapon():
     testPlayer.setWeapon(testWeapon)

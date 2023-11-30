@@ -57,27 +57,3 @@ def lootTheRoom(player, monster, lootTable):
                 player.addCardToHand(item)
                 print("The hero looted: " + str(item.getName()))
                 break
-
-
-def fight(player, monster):
-    if player.getAttack() >= monster.getAttack():
-        print("You won the battle! Loot the room.")
-        lootTheRoom(player, monster)
-    else:
-        print("You can't fight the monster since you are weaker.")
-        time.sleep(1)
-        print(
-            "Either equip items to make yourself stronger, ask for assistance, or run."
-        )
-
-
-def equipWeapon(player, weapon):
-    player.setWeapon(weapon)
-
-
-def equipItem(player, item):
-    player.set(item)
-
-
-def unequipWeapon(player, weapon):
-    player.deleteEquippedWeapon(weapon)

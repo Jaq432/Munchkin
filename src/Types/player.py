@@ -109,13 +109,7 @@ class Player:
         self.personalClass = [data]
 
     def setWeapon(self, data) -> None:
-        # The game has regulations around weapon equipment
-        if (self.personalClass.getName() == "barbarian") and (len(self.getWeapons()) < 2):
-            self.personalWeapon = [data]
-        elif len(self.getWeapons()) != 1:
-            self.personalWeapon = [data]
-        else:
-            print("Prompt to remove the weapon.")
+        self.personalWeapon = [data]
 
     def setItems(self, data) -> None:
         self.personalItems = [data]

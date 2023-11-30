@@ -2,7 +2,6 @@
 
 import time
 
-import moves
 import Types.item as item
 import Types.weapon as weapon
 import Types.monster as monster
