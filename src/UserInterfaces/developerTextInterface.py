@@ -6,6 +6,7 @@ import moves
 import Types.item as item
 import Types.weapon as weapon
 import Types.monster as monster
+import Types.classes as classes
 
 
 def MainConsole(player, lootTable):
@@ -54,7 +55,8 @@ def MainConsole(player, lootTable):
         # Player Class
         elif userChoice == 4:
             print("This is your class:")
-            print(player.getClass())
+            for personalClass in player.getClass():
+                print(personalClass.getName())
 
         # Player Weapons
         elif userChoice == 5:
@@ -90,16 +92,19 @@ def MainConsole(player, lootTable):
             card3 = item.Item("Basic Gloves","hands",1,50,"Better than nothing (leather)",50)
             card4 = item.Item("Basic Boots","feet",1,50,"Better than nothing (leather)",50)
             card5 = weapon.Weapon("Iron Claymore","2 hand",2,200,"Clunky but effective",25)
+            card6 = classes.Class("Barbarian",250,"dual wield",10)
             player.addCardToHand(card1)
             player.addCardToHand(card2)
             player.addCardToHand(card3)
             player.addCardToHand(card4)
             player.addCardToHand(card5)
+            player.addCardToHand(card6)
             player.equipCard(card1)
             player.equipCard(card2)
             player.equipCard(card3)
             player.equipCard(card4)
             player.equipCard(card5)
+            player.equipCard(card6)
 
         # Declare Victory
         elif userChoice == 98:
