@@ -37,7 +37,7 @@ def MainConsole(player, monster, lootTable):
             playerAttack = player.getAttack()
             monsterAttack = monster.getAttack()
             # Handle the archer class attack bonus
-            if monster.getType == "beast":
+            if monster.getType() == "beast":
                 for playerClass in player.getClass():
                     if playerClass.getName() == "Archer":
                         playerAttack += 3
