@@ -201,6 +201,7 @@ class Player:
         for card in equippedItems:
             if card.getName() == data.getName():
                 currentGold += card.getCost()
+                print(currentGold)
                 self.setGold(currentGold)
                 # Delete the item from our equipment
                 if isinstance(data, item.Item):
