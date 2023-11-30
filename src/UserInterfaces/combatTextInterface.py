@@ -34,6 +34,13 @@ def MainConsole(player, monster, lootTable):
 
         # Go to battle with the monster
         if userChoice == 1:
+            for playerClass in player.getClass():
+                if playerClass.getName() == "Archer":
+                    pass
+                    # TODO implement functionality that checks the type of the monster
+                    # if it is a beast, archers get +3 attack against them. 
+                    # This can be done by getting the player's attack once and checking the monster's type,
+                    # then applying the offset
             if monster.getAttack() > player.getAttack():
                 print("You don't have the strength to fight this monster.")
                 time.sleep(1)
