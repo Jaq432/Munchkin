@@ -16,7 +16,7 @@ class Player:
         personItems: list,
         personAttack: int,
         personCardsInHand: list,
-        personalGold: int,
+        personGold: int,
     ):
         # Define all of the default attributes of the player
         self.personalName = personName
@@ -27,7 +27,7 @@ class Player:
         self.personalItems = personItems
         self.attack = personAttack
         self.cardsInHand = personCardsInHand
-        self.personalGold = personalGold
+        self.personalGold = personGold
 
         # This is here for testing
         if False:
@@ -198,6 +198,7 @@ class Player:
     def sellEquippedCard(self, data) -> None:
         equippedItems = self.getWeapons() + self.getItems() + self.getClass()
         currentGold = self.getGold()
+        print(currentGold)
         for card in equippedItems:
             if card.getName() == data.getName():
                 currentGold += card.getCost()
