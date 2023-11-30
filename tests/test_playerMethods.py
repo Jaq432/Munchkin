@@ -40,37 +40,37 @@ def test_updatePlayerCards():
     assert testPlayer.getCardsInHand() == [testItem]
 
 def test_sellPlayerEquippedWeapon():
-    testPlayer.setGold = 0
+    testPlayer.setGold(0)
     testPlayer.setWeapon(testWeapon)
     testPlayer.sellEquippedCard(testWeapon)
     assert testPlayer.getGold() == 50
 
 def test_sellPlayerEquippedItem():
-    testPlayer.setGold = 0
+    testPlayer.setGold(0)
     testPlayer.setItems(testItem)
     testPlayer.sellEquippedCard(testItem)
     assert testPlayer.getGold() == 50
 
 def test_sellPlayerEquippedClass():
-    testPlayer.setGold = 0
+    testPlayer.setGold(0)
     testPlayer.setClass(testClass)
     testPlayer.sellEquippedCard(testClass)
     assert testPlayer.getGold() == 250
 
 def test_sellPlayerHandWeapon():
-    testPlayer.setGold = 0
+    testPlayer.setGold(0)
     testPlayer.addCardToHand(testWeapon)
     testPlayer.sellHandCard(testWeapon)
     assert testPlayer.getGold() == 50
 
 def test_sellPlayerHandItem():
-    testPlayer.setGold = 0
+    testPlayer.setGold(0)
     testPlayer.addCardToHand(testItem)
     testPlayer.sellHandCard(testItem)
     assert testPlayer.getGold() == 50
 
 def test_sellPlayerHandClass():
-    testPlayer.setGold = 0
+    testPlayer.setGold(0)
     testPlayer.addCardToHand(testClass)
     testPlayer.sellHandCard(testClass)
     assert testPlayer.getGold() == 250
