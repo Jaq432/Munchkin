@@ -106,11 +106,6 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data) -> None:
-        print("Class " + str(self.getClass().getName()))
-        if self.getClass().getName() == "barbarian" and (len(self.getWeapons()) >= 2):
-            print("Prompt to remove one of the weapons before proceeding.")
-            self.personalClass = data
-            return
         self.personalClass = data
 
     def setWeapon(self, data) -> None:
