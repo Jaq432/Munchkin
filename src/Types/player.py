@@ -147,7 +147,7 @@ class Player:
                 self.cardsInHand.remove(data)
             elif len(self.getWeapons()) == 1:
                 for personalClass in self.getClass():
-                    if personalClass.getName() == "barbarian":
+                    if personalClass.getName() == "Barbarian":
                         # Equip
                         self.personalWeapon.append(data)
                         # Remove from hand
