@@ -137,4 +137,4 @@ def initialize():
     weaponsFile.close()
     monstersFile.close()
 
-    return itemsTable, weaponsTable, monstersTable
+    return itemsTable, weaponsTable, monstersTable, classesTable

@@ -34,14 +34,21 @@ def MainConsole(player, monster, lootTable):
 
         # Go to battle with the monster
         if userChoice == 1:
-            if monster.getAttack() > player.getAttack():
+            playerAttack = player.getAttack()
+            monsterAttack = monster.getAttack()
+            # Handle the archer class attack bonus
+            if monster.getType() == "beast":
+                for playerClass in player.getClass():
+                    if playerClass.getName() == "Archer":
+                        playerAttack += 3
+            if monsterAttack > playerAttack:
                 print("You don't have the strength to fight this monster.")
                 time.sleep(1)
                 print(
                     "Either equip items, ask for assistance from another player, or run from the fight."
                 )
                 print("")
-            if player.getAttack() >= monster.getAttack():
+            if playerAttack >= monsterAttack:
                 print("You have the strength to defeat this monster.")
                 time.sleep(1)
                 print("You can now loot the room.")
@@ -95,6 +102,7 @@ def MainConsole(player, monster, lootTable):
 
         # Sell items for levels
         elif userChoice == 4:
+
             doneWithSellingCards = False
             while not doneWithSellingCards:
 
@@ -106,6 +114,8 @@ def MainConsole(player, monster, lootTable):
                     mergedItemList.append(equippedWeapon)
                 for equippedItem in player.getItems():
                     mergedItemList.append(equippedItem)
+                for equippedClass in player.getClass():
+                    mergedItemList.append(equippedClass)
                 
                 # Get the list of equipped cards
                 lengthOfEquippedItems = len(mergedItemList)
@@ -129,10 +139,10 @@ def MainConsole(player, monster, lootTable):
                 for card in mergedItemList:
                     # If the card is equipped 
                     if index < lengthOfEquippedItems + 1:
-                        print(str(index) + ": Equipped : " + str(card.getName()))
+                        print(str(index) + ": Equipped : " + str(card.getName()) + " : " + str(card.getCost()))
                     # If the card is in our hand
                     else:
-                        print(str(index) + ": In Hand : " + str(card.getName()))
+                        print(str(index) + ": In Hand : " + str(card.getName()) + " : " + str(card.getCost()))
                     index += 1
                 time.sleep(1)
                 print("")
@@ -163,6 +173,7 @@ def MainConsole(player, monster, lootTable):
                             player.sellHandCard(card)
                             break
                         if index == chosenCardIndexInt and index < lengthOfEquippedItems:
+                            print("Selling equipped Card.")
                             player.sellEquippedCard(card)
                             break
                         elif index == chosenCardIndexInt and index >= lengthOfEquippedItems:

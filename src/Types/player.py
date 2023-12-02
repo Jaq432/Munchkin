@@ -16,7 +16,7 @@ class Player:
         personItems: list,
         personAttack: int,
         personCardsInHand: list,
-        personalGold: int,
+        personGold: int,
     ):
         # Define all of the default attributes of the player
         self.personalName = personName
@@ -27,7 +27,7 @@ class Player:
         self.personalItems = personItems
         self.attack = personAttack
         self.cardsInHand = personCardsInHand
-        self.personalGold = personalGold
+        self.personalGold = personGold
 
         # This is here for testing
         if False:
@@ -106,21 +106,10 @@ class Player:
         self.personalRace = data
 
     def setClass(self, data) -> None:
-        print("Class " + str(self.getClass().getName()))
-        if self.getClass().getName() == "barbarian" and (len(self.getWeapons()) >= 2):
-            print("Prompt to remove one of the weapons before proceeding.")
-            self.personalClass = data
-            return
-        self.personalClass = data
+        self.personalClass = [data]
 
     def setWeapon(self, data) -> None:
-        # The game has regulations around weapon equipment
-        if (self.personalClass.getName() == "barbarian") and (len(self.getWeapons()) < 2):
-            self.personalWeapon = [data]
-        elif len(self.getWeapons()) != 1:
-            self.personalWeapon = [data]
-        else:
-            print("Prompt to remove the weapon.")
+        self.personalWeapon = [data]
 
     def setItems(self, data) -> None:
         self.personalItems = [data]
@@ -139,6 +128,9 @@ class Player:
     def deleteEquippedWeapon(self, data) -> None:
         self.personalWeapon.remove(data)
 
+    def deleteEquippedClass(self, data) -> None:
+        self.personalClass.remove(data)
+
     def deleteItemInHand(self, data) -> None:
         self.cardsInHand.remove(data)
 
@@ -153,11 +145,13 @@ class Player:
                 self.personalWeapon.append(data)
                 # Remove from hand
                 self.cardsInHand.remove(data)
-            elif len(self.getWeapons()) == 1 and self.personalClass.getName() == "barbarian":
-                # Equip
-                self.personalWeapon.append(data)
-                # Remove from hand
-                self.cardsInHand.remove(data)
+            elif len(self.getWeapons()) == 1:
+                for personalClass in self.getClass():
+                    if personalClass.getName() == "Barbarian":
+                        # Equip
+                        self.personalWeapon.append(data)
+                        # Remove from hand
+                        self.cardsInHand.remove(data)
             else:
                 print("You already have something equipped in the weapon slot.")
                 time.sleep(1)
@@ -177,13 +171,12 @@ class Player:
 
         # Class
         elif isinstance(data, classes.Class):
-            for characterClass in self.getClass():
-                if equipment.getType() == equipmentSlotToEquip:
-                    print("You already have something equipped in the " + str(equipmentSlotToEquip) + " slot.")
-                    time.sleep(1)
-                    print("Please unequip the item in that slot before proceeding.")
-                    return
-            self.personalItems.append(data)
+            if self.getClass() != []:
+                print("You can only have one class equipped at a time.")
+                time.sleep(1)
+                print("Please unequip the class before proceeding.")
+                return
+            self.personalClass.append(data)
             self.cardsInHand.remove(data)
 
         else:
@@ -203,13 +196,13 @@ class Player:
 
     # Sell Cards
     def sellEquippedCard(self, data) -> None:
-        equippedItems = self.getWeapons() + self.getItems()
+        equippedItems = self.getWeapons() + self.getItems() + self.getClass()
         currentGold = self.getGold()
+        print(currentGold)
         for card in equippedItems:
-            print("Checking choice vs equipped cards: " + str(data.getName()) + " " + str(card.getName()))
             if card.getName() == data.getName():
-                print("Selling the card that's equipped.")
                 currentGold += card.getCost()
+                print(currentGold)
                 self.setGold(currentGold)
                 # Delete the item from our equipment
                 if isinstance(data, item.Item):
@@ -218,12 +211,14 @@ class Player:
                 if isinstance(data, weapon.Weapon):
                     self.deleteEquippedWeapon(data)
                     return
+                if isinstance(data, classes.Class):
+                    self.deleteEquippedClass(data)
+                    return
 
     def sellHandCard(self, data) -> None:
         handItems = self.getCardsInHand()
         currentGold = self.getGold()
         for card in handItems: 
-            print("Checking choice vs hand cards: " + str(data.getName()) + " " + str(card.getName()))
             if card.getName() == data.getName():
                 print("Selling the card from your hand.")
                 currentGold += card.getCost()

@@ -38,6 +38,13 @@ def main():
             # Slow down the beginning of the turn
             time.sleep(1)
 
+            # Rogues get 25g per turn
+            for userClass in arrayOfPlayers[playerArrayNum].getClass():
+                if userClass.getName() == "Rogue":
+                    print("Being a Rogue, you get 25g.")
+                    playerGold = arrayOfPlayers[playerArrayNum].getGold() + 25
+                    arrayOfPlayers[playerArrayNum].setGold(playerGold)
+
             # userResponse will be True if the current player is >= level 20, signifying a win
             userResponse = mainTextInterface.MainConsole(
                 arrayOfPlayers[playerArrayNum], monsterTable, lootTable

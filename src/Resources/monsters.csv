@@ -1,8 +1,8 @@
 # name, type, attack value, description, levels to gain, loot to gain, spawn chance
-Boar,animal,1,Just a boar,1,1,50
+Boar,beast,1,Just a boar,1,1,50
 Skeleton,undead,3,How is it alive?!,1,1,40
 Murlok,humanoid,3,Is that a bipedal frog?,1,1,40
-Bear,animal,5,Doesn't look very happy,1,2,30
+Bear,beast,5,Doesn't look very happy,1,2,30
 Bandit,humanoid,5,Looking for loot,1,2,30
 Assassin,humanoid,8,Someone must not like you,2,2,20
 Knight,humanoid,8,They were just minding their own business until you came along,2,2,20
