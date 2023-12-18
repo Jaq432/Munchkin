@@ -1,0 +1,20 @@
+name: Semgrep Check
+
+on:
+  push:
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Semgrep
+      run: |
+        curl -fsSL https://semgrep.dev/install.sh | sh
+        semgrep --version
+
+    - name: Run Semgrep
+      run: semgrep --config=.semgrep.yml
