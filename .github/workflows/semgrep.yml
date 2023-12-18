@@ -2,7 +2,7 @@ name: Semgrep Check
 
 on:
   push:
-
+  
 jobs:
   semgrep:
     runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
 
     - name: Install Semgrep
       run: |
-        curl -fsSL https://semgrep.dev/install.sh | sh
+        curl -fsSL https://semgrep.dev/install.sh | bash
         semgrep --version
 
     - name: Run Semgrep
