@@ -1,5 +1,5 @@
 # name, cost, special properties, drop chance weight, can assist monster
-basic poison, 50, +1 damage this turn, 50, false
-fire bolt, 100, +2 damage this turn, 25, true
+basic poison, 50, -1 monster attack, 50, false
+ignite bolt, 100, -2 monster attack, 25, true
 flash powder, 200, flee for free, 20, false
-steroids, 250, +3 damage this turn, 15, true
+anti-steroids, 250, -3 monster attack, 15, true
