@@ -1,5 +1,5 @@
-# name, cost, special properties, drop chance weight, can assist monster
-basic poison, 50, -1 monster attack, 50, false
-ignite bolt, 100, -2 monster attack, 25, true
-flash powder, 200, flee for free, 20, false
-anti-steroids, 250, -3 monster attack, 15, true
+# name, type, cost, special properties, drop chance weight, can assist monster
+basic poison, action card, 50, -1 monster attack, 50, false
+ignite bolt, action card, 100, -2 monster attack, 25, true
+flash powder, action card, 200, flee for free, 20, false
+anti-steroids, action card, 250, -3 monster attack, 15, true

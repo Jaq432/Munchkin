@@ -1,5 +1,5 @@
 # name, cost, special properties, drop chance weight
 Barbarian,250,dual wield 2H weapons,10
 Rogue,250,gain 25g per turn,10
-Mage,250,+2 damage for spells,10
+Mage,250,+2 impact for action cards,10
 Archer,250,+3 damage against beasts,10

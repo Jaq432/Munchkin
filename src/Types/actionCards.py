@@ -2,6 +2,7 @@ class ActionCard:
     def __init__( # initialization
         self,
         actionCardName: str,
+        actionCardType: str,
         actionCardCost: int,
         actionCardSpecialProperties: str,
         actionCardDropChance: int,
@@ -9,6 +10,7 @@ class ActionCard:
     ):
         # Define all of the declared attributes of the monster
         self.actionCardName = str(actionCardName)
+        self.actionCardType = str(actionCardType)
         self.actionCardCost = int(actionCardCost)
         self.actionCardSpecialProperties = str(actionCardSpecialProperties)
         self.actionCardDropChance = int(actionCardDropChance)
@@ -17,6 +19,9 @@ class ActionCard:
     # Getters
     def getName(self):
         return self.actionCardName
+    
+    def getType(self):
+        return self.actionCardType
 
     def getCost(self):
         return self.actionCardCost
@@ -33,6 +38,9 @@ class ActionCard:
     # Setters
     def setName(self, data):
         self.actionCardName = data
+
+    def setType(self, data):
+        self.actionCardType = data
 
     def setCost(self, data):
         self.actionCardCost = data

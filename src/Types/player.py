@@ -86,6 +86,16 @@ class Player:
         else:
             return []
         
+    def getActionCardsInHand(self) -> list:
+        if self.cardsInHand != None:
+            actionCards = []
+            for card in self.cardsInHand:
+                if card.getType() == "action card":
+                    actionCards += card
+            return actionCards
+        else:
+            return []
+        
     def getGold(self) -> int:
         return self.personalGold
 
@@ -181,6 +191,10 @@ class Player:
 
         else:
             print("Something went wrong with equippng the card.")
+
+    # Play Action Card
+    def playActionCard(self, data) -> None:
+        pass
 
 
     # Unequip Card

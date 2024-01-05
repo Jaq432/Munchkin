@@ -19,9 +19,10 @@ def MainConsole(player, monster, lootTable):
         print("1. Battle with your current power")
         print("2. List the cards in your hand")
         print("3. Equip an item from your hand")
-        print("4. Sell items for gold")
-        print("5. Exchange 1000g for a character level up.")
-        print("6. Run and lose level(s) based on the monster.")
+        print("4. Use an action card.")
+        print("5. Sell items for gold")
+        print("6. Exchange 1000g for a character level up.")
+        print("7. Run and lose level(s) based on the monster.")
         print("9. Developer Interface")
         print("99. Exit the game")
 
@@ -100,8 +101,33 @@ def MainConsole(player, monster, lootTable):
                 print("")
                 time.sleep(1)
 
-        # Sell items for levels
+        # Play an action card
         elif userChoice == 4:
+            if player.getCardsInHand() != []:
+                print("This is a list of the action cards you can use:")
+                cardIndex = 1
+                for card in player.getActionCardsInHand():
+                    print(str(cardIndex) + ". " + str(card.getName()))
+                    cardIndex += 1
+                print("")
+                time.sleep(1)
+                userInput = input("What card would you like to use? ")
+                try:
+                    userInputInt = int(userInput)
+                    print("")
+                    cardToEquip = player.getActionCardsInHand()[int(userInputInt) - 1]
+                    player.playActionCard(cardToEquip)
+                except:
+                    print("Invalid Input. Please try again.")
+                    print("")
+                    time.sleep(1)
+            else:
+                print("You don't have any cards in your hand.")
+                print("")
+                time.sleep(1)
+
+        # Sell items for levels
+        elif userChoice == 5:
 
             doneWithSellingCards = False
             while not doneWithSellingCards:
@@ -186,7 +212,7 @@ def MainConsole(player, monster, lootTable):
                     # Give some space for formatting
                     print("")
 
-        elif userChoice == 5:
+        elif userChoice == 6:
             print("Performing this action costs 1000g.")
             time.sleep(1)
             currentUserGold = int(player.getGold())
@@ -209,7 +235,7 @@ def MainConsole(player, monster, lootTable):
                     print("User input wasn't an option. Please try again.")
 
         # Run from the fight and lose levels based on the monster
-        elif userChoice == 6:
+        elif userChoice == 7:
             # Adjust the character's level
             player.setLevel(player.getLevel() - monster.getLevelsGain())
             print("Your character is now level " + str(player.getLevel()))
