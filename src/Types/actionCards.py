@@ -1,55 +1,47 @@
-class Item:
+class ActionCard:
     def __init__( # initialization
         self,
-        inputItemName: str,
-        inputItemType: str,
-        inputItemAttack: int,
-        inputItemCost: int,
-        inputItemSpecialProperties: str,
-        inputItemDropChance: int,
+        actionCardName: str,
+        actionCardCost: int,
+        actionCardSpecialProperties: str,
+        actionCardDropChance: int,
+        actionCardMonsterAssist: bool,
     ):
         # Define all of the declared attributes of the monster
-        self.itemName = str(inputItemName)
-        self.itemType = str(inputItemType)
-        self.itemAttack = int(inputItemAttack)
-        self.itemCost = int(inputItemCost)
-        self.itemSpecialProperties = str(inputItemSpecialProperties)
-        self.itemDropChance = int(inputItemDropChance)
+        self.actionCardName = str(actionCardName)
+        self.actionCardCost = int(actionCardCost)
+        self.actionCardSpecialProperties = str(actionCardSpecialProperties)
+        self.actionCardDropChance = int(actionCardDropChance)
+        self.actionCardMonsterAssist = bool(actionCardMonsterAssist)
 
     # Getters
     def getName(self):
-        return self.itemName
-
-    def getAttack(self):
-        return self.itemAttack
+        return self.actionCardName
 
     def getCost(self):
-        return self.itemCost
+        return self.actionCardCost
 
     def getSpecialProperties(self):
-        return self.itemSpecialProperties
-
-    def getType(self):
-        return self.itemType
+        return self.actionCardSpecialProperties
     
     def getDropChance(self):
-        return self.itemDropChance
+        return self.actionCardDropChance
+    
+    def getMonsterAssist(self):
+        return self.actionCardMonsterAssist
 
     # Setters
     def setName(self, data):
-        self.itemName = data
-
-    def setAttack(self, data):
-        self.itemAttack = data
+        self.actionCardName = data
 
     def setCost(self, data):
-        self.itemCost = data
+        self.actionCardCost = data
 
     def setSpecialProperties(self, data):
-        self.itemSpecialProperties = data
-
-    def setType(self, data):
-        self.itemType = data
+        self.actionCardSpecialProperties = data
 
     def setDropChance(self, data):
-        self.itemDropChance = data
+        self.actionCardDropChance = data
+
+    def setMonsterAssist(self, data):
+        self.actionCardMonsterAssist = data

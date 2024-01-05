@@ -4,6 +4,7 @@ import Types.item as item
 import Types.weapon as weapon
 import Types.monster as monster
 import Types.classes as classes
+import Types.actionCards as actionCards
 
 
 def initialize():
@@ -17,22 +18,26 @@ def initialize():
         weaponsDirectory = dirname + "\\Resources\\weapons.csv"
         monsterDirectory = dirname + "\\Resources\\monsters.csv"
         classesDirectory = dirname + "\\Resources\\classes.csv"
+        actionCardsDirectory = dirname + "\\Resources\\actionCards.csv"
     # If not nt, it is linux/mac based and needs different a directory format
     else:
         itemsDirectory = dirname + "/Resources/items.csv"
         weaponsDirectory = dirname + "/Resources/weapons.csv"
         monsterDirectory = dirname + "/Resources/monsters.csv"
         classesDirectory = dirname + "/Resources/classes.csv"
+        actionCardsDirectory = dirname + "/Resources/actionCards.csv"
 
     itemsFile = open(itemsDirectory, "r")
     weaponsFile = open(weaponsDirectory, "r")
     monstersFile = open(monsterDirectory, "r")
     classesFile = open(classesDirectory, 'r')
+    actionCardsFile = open(actionCardsDirectory, "r")
 
     itemsTable = []
     weaponsTable = []
     monstersTable = []
     classesTable = []
+    actionCardsTable = []
 
     for line in itemsFile:
         if line[0] == "#":
@@ -132,9 +137,35 @@ def initialize():
                 )
                 classesTable.append(newMonster)
 
+    for line in actionCardsFile:
+        if line[0] == "#":
+            continue
+
+        else:
+            # Pull out and scrub each field
+            line = line.split(",")
+            actionCardName = str(line[0])
+            actionCardCost = int(line[1])
+            actionCardSpecialProperties = str(line[2])
+            actionCardDropChance = int(line[3])
+            actionCardMonsterAssist = bool(line[4])
+
+            # Create and add it to the table
+            newActionCard = actionCards.ActionCard(
+                actionCardName,
+                actionCardCost,
+                actionCardSpecialProperties,
+                actionCardDropChance,
+                actionCardMonsterAssist,
+            )
+            actionCardsTable.append(newActionCard)
+        
+
     # Clean up our tracks
     itemsFile.close()
     weaponsFile.close()
     monstersFile.close()
+    classesFile.close()
+    actionCardsFile.close()
 
-    return itemsTable, weaponsTable, monstersTable, classesTable
+    return itemsTable, weaponsTable, classesTable, actionCardsTable, monstersTable

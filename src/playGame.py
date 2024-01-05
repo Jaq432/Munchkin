@@ -15,7 +15,7 @@ def main():
     time.sleep(1)
 
     # Initialize our tables
-    itemsTable, weaponsTable, monsterTable, classTable = initialize.initialize()
+    itemsTable, weaponsTable, classTable, actionCardsTable, monsterTable = initialize.initialize()
 
     # Capture the number of players
     numberOfPlayers = int(input("How many players would like to play? "))
@@ -24,7 +24,7 @@ def main():
     arrayOfPlayers = createPlayers.playerCreation(numberOfPlayers, "", "")
 
     # Merge the itemsTable and weaponsTable for a loot table
-    lootTable = weaponsTable + itemsTable
+    lootTable = itemsTable + weaponsTable + classTable + actionCardsTable
 
     # This is the flag for victory
     userResponse = False
