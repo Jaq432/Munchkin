@@ -135,7 +135,7 @@ def initialize():
                     classSpecialProperties,
                     classDropChanceWeight,
                 )
-                classesTable.append(newMonster)
+                classesTable.append(newClass)
 
     for line in actionCardsFile:
         if line[0] == "#":
